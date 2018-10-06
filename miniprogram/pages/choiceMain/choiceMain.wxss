@@ -50,7 +50,7 @@ page{
   border-radius: 100rpx;
   color: #ffffff;
   margin: 0 auto;
-  margin-top: 50%;
+  margin-top: 80%;
   text-align: center;
   justify-content:center;
   display:flex;
