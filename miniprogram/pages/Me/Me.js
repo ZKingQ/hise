@@ -11,18 +11,18 @@ Page({
  
   onLoad: function () {
     that = this;
-    var currentUser = Bmob.User.current();
-    var currentUserId = currentUser.id;
-    app.getUserInfo(function (userInfo) {
-      console.log(userInfo)
-      //更新数据
-      that.setData({
-        userInfo: userInfo,
-        currentUserId: currentUserId
-      })
+    wx.getUserInfo({
+      success: function (res) {
+        console.log(res);
+        var avatarUrl = 'userInfo.avatarUrl';
+        var nickName = 'userInfo.nickName';
+        that.setData({
+          userInfo: res.userInfo,
+          hasUserInfo: true
+        })
+      }
     })
   },
-
   onShow: function () {
   
   },
