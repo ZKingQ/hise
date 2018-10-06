@@ -16,16 +16,16 @@
   <view class='grayLine1'></view>
 
   <view class='testHistory'>
-    <view class='text'>学校：</view>
-    <view class='text' style='color:#343535;'>杭州师范大学</view>
+    <view class='text'>班级：</view>
+    <view class='text' style='color:#343535;'>软工161</view>
     <!-- <view class='text' style='color:#343535;'>{{university}}</view> -->
   </view>
 
   <view class='grayLine1'></view>
 
   <view class='personalInformation'>
-    <view class='text'>手机号:</view>
-    <view class='text' style='color:#343535;'>18012345678</view>
+    <view class='text'>学号:</view>
+    <view class='text' style='color:#343535;'>2016210405033</view>
     <!-- <view class='text' style='color:#343535;'>{{telephone}}</view> -->
   </view>
   
@@ -49,10 +49,6 @@
     <image class='icon'  src='../../images/1-02.png'></image>
     <view class='text'>个人信息</view>
   </view> -->
-
-
-
-
 
 
 </view>

@@ -1,8 +1,6 @@
 var that;
 var Bmob = require('../../utils/bmob.js');
-
-
-
+const app = getApp()
 // userLogin();
 
 // function userLogin() {
@@ -26,12 +24,13 @@ var Bmob = require('../../utils/bmob.js');
 //   })
 // }  
 
-
-
 Page({
   data: { 
-    startSrc:'../register/register'
 
+    startSrc:'../register/register',
+    userInfo:{},
+    hasUserInfo:false,
+    canIUse: wx.canIUse('button.open-type.getUserInfo')
     
     // choseQuestionBank:"点击选择",
 
@@ -68,86 +67,142 @@ Page({
     // loading: true,
     // currentUserId:''
   },
+
   start: function () {
     wx.navigateTo({
       url: '../register/register',
     })
   },
 
+  // bindViewTap:function(){
+  //   wx.navigateTo({
+  //     url: '',
+  //   })
+  // }
+
   onLoad: function () {
-    that = this;
-  },
-
-  onShow: function () {
-
-  },
-
-  startAnswer:function(){
-    wx.navigateTo({
-      url: '../register/register'
-    })
-  },
-
-  bindPickerChange: function (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      index: e.detail.value,
-      choseQuestionBank: that.data.array[e.detail.value]
-    })
-  },
-
-  chose:function(){
-    var currentUser = Bmob.User.current();
-    var currentUserId = currentUser.id;
-    var User = Bmob.Object.extend("_User");
-    var queryUser = new Bmob.Query(User);
-    queryUser.get(currentUserId, {
-      success: function (result) {
-        var register = result.get("register");
-        console.log(register)
-        if (register==true){
-          var choseQuestionBank = that.data.choseQuestionBank;
-          if (choseQuestionBank != "点击选择") {
-            getApp().globalData.choseQuestionBank = choseQuestionBank;
-            getApp().globalData.score = 0;
-
-            wx.navigateTo({
-              url: '../singleChoiceExplain/singleChoiceExplain'
-            });
-          }
-          else if (choseQuestionBank == "点击选择") {
-            wx.showToast({
-              title: '请选择题库',
-              image: '../../images/warn.png',
-              duration: 2000
-            })
-          }
-        }
-        else{
-          wx.showModal({
-            title: '尚未完善信息',
-            content: '请放心填写，您的隐私绝不会被泄露',
-            confirmText: '立即注册',
-            confirmColor: '#1bd0bd',
-            showCancel:false,
-            success: function (res) {
-              if (res.confirm) {
-                wx.navigateTo({
-                  url: '../register/register'
-                })
-              } else if (res.cancel) {
-              }
-            }
-          })
-        }
-        that.setData({
-          loading: false
+    that = this; 
+    wx.getUserInfo({
+      success:function(res){
+        console.log(res);
+          var avatarUrl='userInfo.avatarUrl';
+          var nickName='userInfo.nickName';
+          that.setData({
+            userInfo: res.userInfo,
+            hasUserInfo: true
         })
-      },
-      error: function (object, error) {
       }
-    });
+    })
   },
+   
+    // if(app.globalData.userInfo){
+    //   that.setData({
+    //     userInfo:app.globalData.userInfon,
+    //     hasUserinfo:true
+    //   })
+    // }
+    // else if(that.data.canIUse){
+    //   // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+    //   // 所以此处加入 callback 以防止这种情况
+    //   app.userInfoReadyCallback = res => {
+    //     this.setData({
+    //       userInfo: res.userInfo,
+    //       hasUserInfo: true
+    //     })
+    //   }
+    // }
+    // else{
+    //   // 在没有 open-type=getUserInfo 版本的兼容处理
+    //   wx.getUserInfo({
+    //     success: res => {
+    //       app.globalData.userInfo = res.userInfo
+    //       this.setData({
+    //         userInfo: res.userInfo,
+    //         hasUserInfo: true
+    //       })
+    //     }
+    //   })
+    // } 
+  // },
+  // getUserInfo: function (e) {
+  //   console.log(e)
+  //   app.globalData.userInfo = e.detail.userInfo
+  //   this.setData({
+  //     userInfo: e.detail.userInfo,
+  //     hasUserInfo: true
+  //   })
+  // },
+
+  // onShow: function () {
+
+  // },
+
+  // startAnswer:function(){
+  //   wx.navigateTo({
+  //     url: '../register/register'
+  //   })
+  // },
+
+  // bindPickerChange: function (e) {
+  //   console.log('picker发送选择改变，携带值为', e.detail.value)
+  //   this.setData({
+  //     index: e.detail.value,
+  //     choseQuestionBank: that.data.array[e.detail.value]
+  //   })
+  // },
+
+  // chose:function(){
+  //   var currentUser = Bmob.User.current();
+  //   var currentUserId = currentUser.id;
+  //   var User = Bmob.Object.extend("_User");
+  //   var queryUser = new Bmob.Query(User);
+  //   queryUser.get(currentUserId, {
+  //     success: function (result) {
+  //       var register = result.get("register");
+  //       console.log(register)
+  //       if (register==true){
+  //         var choseQuestionBank = that.data.choseQuestionBank;
+  //         if (choseQuestionBank != "点击选择") {
+  //           getApp().globalData.choseQuestionBank = choseQuestionBank;
+  //           getApp().globalData.score = 0;
+
+  //           wx.navigateTo({
+  //             url: '../singleChoiceExplain/singleChoiceExplain'
+  //           });
+  //         }
+  //         else if (choseQuestionBank == "点击选择") {
+  //           wx.showToast({
+  //             title: '请选择题库',
+  //             image: '../../images/warn.png',
+  //             duration: 2000
+  //           })
+  //         }
+  //       }
+  //       else{
+  //         wx.showModal({
+  //           title: '尚未完善信息',
+  //           content: '请放心填写，您的隐私绝不会被泄露',
+  //           confirmText: '立即注册',
+  //           confirmColor: '#1bd0bd',
+  //           showCancel:false,
+  //           success: function (res) {
+  //             if (res.confirm) {
+  //               wx.navigateTo({
+  //                 url: '../register/register'
+  //               })
+  //             } else if (res.cancel) {
+  //             }
+  //           }
+  //         })
+  //       }
+  //       that.setData({
+  //         loading: false
+  //       })
+  //     },
+  //     error: function (object, error) {
+  //     }
+  //   });
+  // },
 
  
   // onShareAppMessage: function (res) {

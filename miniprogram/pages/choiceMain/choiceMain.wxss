@@ -9,6 +9,22 @@ page{
     background: #ffffff;
 }
 
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
 /* .choiceIcon{
   text-align: center;
   margin: 0 auto;
@@ -25,7 +41,7 @@ page{
 
 .imageText{
   font-size: 35rpx;
-} */
+} 
 
 .choseQuestion{
   font-size: 30rpx;
@@ -39,7 +55,7 @@ page{
   align-items:center;
   color: #adc2c1;
   margin-bottom: 80rpx;
-}
+} */
 
 
 .startAnswer{
@@ -50,7 +66,7 @@ page{
   border-radius: 100rpx;
   color: #ffffff;
   margin: 0 auto;
-  margin-top: 80%;
+  margin-top: -40%;
   text-align: center;
   justify-content:center;
   display:flex;
@@ -58,19 +74,19 @@ page{
   
 }
 
-.image{
+/* .image{
   width: 250rpx;
   height: 250rpx;
-}
+} */
 
-.text{
+/* .text{
   font-size: 35rpx;
   width: 480rpx;
   margin: 0 auto;
   margin-bottom: 25rpx;
-}
+} */
 
-.inputFrame{
+/* .inputFrame{
   width: 480rpx;
   height: 70rpx;
   background-color: #eef7f6;
@@ -79,9 +95,9 @@ page{
   align-items:center;
   margin: 0 auto;
   margin-bottom: 30rpx;
-}
+} */
 
-.ensure{
+/* .ensure{
   font-size: 35rpx;
   color: #ffffff;
   text-align: center;
@@ -93,10 +109,11 @@ page{
   background-color: #e03e16;
   margin: 0 auto;
   margin-top: 50rpx;
-}
+} */
 
 .tip{
     text-align: center;
     margin-top: 25rpx;
     font-size: 28rpx;
 }
+
