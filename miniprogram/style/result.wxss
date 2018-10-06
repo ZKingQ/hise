@@ -161,7 +161,7 @@ page{
   width: 240rpx;
   height: 70rpx;
   border-radius: 100rpx;
-  background-color: #1bd0bd;
+  background-color: #e03e16;
 }
 
 .rightText{
@@ -174,7 +174,7 @@ page{
   width: 240rpx;
   height: 70rpx;
   border-radius: 100rpx;
-  background-color: #1bd0bd;
+  background-color: #e03e16;
 }
 
 

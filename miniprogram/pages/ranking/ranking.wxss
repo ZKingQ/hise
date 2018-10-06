@@ -194,7 +194,7 @@ reasonItempage{
 .loading3_bottom {
   width: 20rpx;
   height: 20rpx;
-  background: #1bd0bd;
+  background: #e03e16;
   border-radius: 50%;
   margin-left: 15rpx;
 }

@@ -1,41 +1,77 @@
 var that;
 var Bmob = require('../../utils/bmob.js');
+
+
+
+// userLogin();
+
+// function userLogin() {
+//   console.log('userLogin-------用户登录---')
+//   wx.login({
+//     success: res => {
+//       var code = res.code;
+//       if (code) {
+//         console.log('code :' + code)
+//         getOpenId(code)
+//       } else {
+//         console.log('获取用户登录态失败！' + res.errMsg)
+//         util.showToastFail('获取用户登录态失败！' + res.errMsg)
+//       }
+//     },
+
+//     fail: function (res) {
+//       util.showToastFail('登录失败')
+//       console.log('登录失败');
+//     }
+//   })
+// }  
+
+
+
 Page({
   data: { 
-    choseQuestionBank:"点击选择",
+    startSrc:'../register/register'
 
-    array: ['大学计算机期末考试题库', '计算机二级office题库', '毛概期末考试题库', '中国近代史期末考试题库', '马克思原理期末考试题库','形式与政策'],
+    
+    // choseQuestionBank:"点击选择",
+
+    // array: ['大学计算机期末考试题库', '计算机二级office题库', '毛概期末考试题库', '中国近代史期末考试题库', '马克思原理期末考试题库','形式与政策'],
 
 
-    objectArray: [
-      {
-        id: 0,
-        name: '大学计算机期末考试题库'
-      },
-      {
-        id: 1,
-        name: '计算机二级office题库'
-      },
-      {
-        id: 2,
-        name: '毛概期末考试题库'
-      },
-      {
-        id: 3,
-        name: '中国近代史期末考试题库'
-      },
-      {
-        id: 4,
-        name: '马克思原理期末考试题库'
-      },
-      {
-        id: 5,
-        name: '形式与政策'
-      }
-    ],
-    index: 0,
-    loading: true,
-    currentUserId:''
+    // objectArray: [
+    //   {
+    //     id: 0,
+    //     name: '大学计算机期末考试题库'
+    //   },
+    //   {
+    //     id: 1,
+    //     name: '计算机二级office题库'
+    //   },
+    //   {
+    //     id: 2,
+    //     name: '毛概期末考试题库'
+    //   },
+    //   {
+    //     id: 3,
+    //     name: '中国近代史期末考试题库'
+    //   },
+    //   {
+    //     id: 4,
+    //     name: '马克思原理期末考试题库'
+    //   },
+    //   {
+    //     id: 5,
+    //     name: '形式与政策'
+    //   }
+    // ],
+    // index: 0,
+    // loading: true,
+    // currentUserId:''
+  },
+  start: function () {
+    wx.navigateTo({
+      url: '../register/register',
+    })
   },
 
   onLoad: function () {
@@ -44,6 +80,12 @@ Page({
 
   onShow: function () {
 
+  },
+
+  startAnswer:function(){
+    wx.navigateTo({
+      url: '../register/register'
+    })
   },
 
   bindPickerChange: function (e) {
@@ -108,20 +150,20 @@ Page({
   },
 
  
-  onShareAppMessage: function (res) {
-    if (res.from === 'button') {
-      console.log(res.target)
-    }
-    return {
-      title: '大学考试题库',
-      path: '/pages/choiceMain/choiceMain',
-      success: function (res) {
-        // 转发成功
-      },
-      fail: function (res) {
-        // 转发失败
-      }
-    }
-  }
+  // onShareAppMessage: function (res) {
+  //   if (res.from === 'button') {
+  //     console.log(res.target)
+  //   }
+  //   return {
+  //     title: '大学考试题库',
+  //     path: '/pages/choiceMain/choiceMain',
+  //     success: function (res) {
+  //       // 转发成功
+  //     },
+  //     fail: function (res) {
+  //       // 转发失败
+  //     }
+  //   }
+  // }
  
 })

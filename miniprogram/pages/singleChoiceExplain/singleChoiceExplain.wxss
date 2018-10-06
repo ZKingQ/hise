@@ -27,7 +27,7 @@ page{
   left: 50%;
   margin-left: -125rpx;
   font-size: 30rpx;
-  background-color: #1bd0bd;
+  background-color: #e03e16;
   width: 250rpx;
   height: 80rpx;
   border-radius: 100rpx;

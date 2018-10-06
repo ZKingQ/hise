@@ -1,6 +1,6 @@
 <view class="page">
   <view style='text-align: center;justify-content:center;display:flex;align-items:center;margin:40rpx 0rpx 70rpx 0rpx;'>
-    <image class='image' src='../../images/8-01.png'></image>
+    <!-- <image class='image' src='../../images/8-01.png'></image> -->
   </view>
 
     <form bindsubmit="registerSuccess">

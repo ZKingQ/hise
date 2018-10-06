@@ -1,4 +1,4 @@
-var Bmob = require('../../utils/bmob.js');
+// var Bmob = require('../../utils/bmob.js');
 var that;
 Page({
 
@@ -6,7 +6,7 @@ Page({
     currentUserId: null
   },
 
-
+  
   onLoad: function (options) {
     that = this;
     var currentUser = Bmob.User.current();
@@ -15,6 +15,7 @@ Page({
       currentUserId: currentUserId
     })
 
+    // 连接数据库
     var User = Bmob.Object.extend("_User");
     var queryUser = new Bmob.Query(User);
     // 查询所有数据
@@ -42,16 +43,24 @@ Page({
     var university = e.detail.value.university;
     var telephone = e.detail.value.telephone;
     console.log(currentUserId)
-    if (!university) {
+
+    wx.navigateTo({
+      url: '../singleChoiceExplain/singleChoiceExplain',
+    })
+
+
+
+
+    if (!realName) {
       wx.showToast({
-        title: '请填写您的学校',
+        title: '请填写您的姓名',
         image: '../../images/warn.png',
         duration: 2000
       })
     }
-    else if (!realName) {
+    else if (!university) {
       wx.showToast({
-        title: '请填写您的姓名',
+        title: '请填写您的学校',
         image: '../../images/warn.png',
         duration: 2000
       })
@@ -64,6 +73,10 @@ Page({
       })
     }
     else{
+
+
+
+
       var User = Bmob.Object.extend("_User");
       var queryUser = new Bmob.Query(User);
       queryUser.get(currentUserId, {
@@ -79,6 +92,7 @@ Page({
         }
       });
     }
+    
   },
 
   

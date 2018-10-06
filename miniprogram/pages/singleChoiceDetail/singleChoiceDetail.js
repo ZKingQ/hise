@@ -26,7 +26,8 @@ Page({
     });
     var currentUser = Bmob.User.current();
     var currentUserId = currentUser.id;
-    var choseQuestionBank = that.data.choseQuestionBank;
+    // var choseQuestionBank = that.data.choseQuestionBank;
+    var choseQuestionBank = "大学计算机期末考试题库";
     var loadQuestionBank;
     var questionList=new Array();
     var multiQuestionList = new Array();
@@ -49,12 +50,16 @@ Page({
       loadQuestionBank = "QB6";
     }
     var QuestionBank = Bmob.Object.extend(loadQuestionBank);
-    var querySingleQuestionBank = new Bmob.Query(QuestionBank);
+    
+
+
+    //var querySingleQuestionBank = new Bmob.Query(QuestionBank);
+    
     querySingleQuestionBank.equalTo("type", "SC");
     querySingleQuestionBank.find({
-      success: function (results) {
-        console.log("共查询到 " + results.length + " 条记录");
-        for (var i = 0; i < results.length; i++) {
+      success: function () {
+        console.log("共查询到 " + 1 + " 条记录");
+        for (var i = 0; i < 1 ;i++) {
           questionList.push(results[i])
           questionList[i].attributes.userChose = "空";
         }
@@ -69,6 +74,7 @@ Page({
         console.log("查询失败: " + error.code + " " + error.message);
       }
     });
+    
     var queryMultiQuestionBank = new Bmob.Query(QuestionBank);
     queryMultiQuestionBank.equalTo("type", "MC");
     queryMultiQuestionBank.find({
@@ -377,7 +383,7 @@ Page({
 
 
 
-
+  //答题卡
   answerCard:function(){
     getApp().globalData.singleChoiceAnswerNow = that.data.questionList,
     getApp().globalData.multiChoiceAnswerNow = that.data.newMultiQuestionList;
@@ -391,7 +397,8 @@ Page({
     getApp().globalData.multiChoiceAnswerNow = that.data.newMultiQuestionList;
     if (questionNumber==19){
       wx.redirectTo({
-        url: '../multiChoiceExplain/multiChoiceExplain'
+        url: '../'
+        // url: '../multiChoiceExplain/multiChoiceExplain'
       });
     }
   }

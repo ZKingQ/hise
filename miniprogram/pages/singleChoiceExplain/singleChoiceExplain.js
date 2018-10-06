@@ -24,7 +24,8 @@ Page({
   action: function () {
     var choseQuestionBank = that.data.choseQuestionBank;
     wx.redirectTo({
-      url: '../singleChoiceDetail/singleChoiceDetail?choseQuestionBank=' + choseQuestionBank
+      url: '../singleChoiceDetail/singleChoiceDetail'
+      // url: '../singleChoiceDetail/singleChoiceDetail?choseQuestionBank=' + choseQuestionBank
     });
   }
 

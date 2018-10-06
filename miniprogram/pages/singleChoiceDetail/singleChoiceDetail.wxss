@@ -55,17 +55,17 @@ page{
 
 
 .correctCharacter{
-  border:1px #1bd0bd solid;
-  background-color: #1bd0bd;
+  border:1px #e03e16 solid;
+  background-color: #e03e16;
   color: white;
 }
 
 
 
 .blankCharacter{
-  border:1px #1bd0bd solid;
+  border:1px #e03e16 solid;
   background-color: white;
-  color: #1bd0bd;
+  color: #e03e16;
 }
 
 .character{
@@ -114,7 +114,7 @@ page{
   position: fixed;
   bottom: 130rpx;
   right: 0;
-  background-color: #1bd0bd;
+  background-color: #e03e16;
   border-radius: 15rpx;
 }
 

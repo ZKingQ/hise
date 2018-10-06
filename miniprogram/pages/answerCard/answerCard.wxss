@@ -25,11 +25,11 @@ page{
   margin: 0rpx 50rpx 30rpx 0rpx;
   width: 25px;
   height: 25px;
-  background-color: #1bd0bd;
+  background-color: #e03e16;
   color: white;
   text-align: center;
   border-radius: 100px;
-  border:1px #1bd0bd solid;
+  border:1px #e03e16 solid;
   justify-content:center;
   display:flex;
   align-items:center;
@@ -56,10 +56,10 @@ page{
   width: 25px;
   height: 25px;
   background-color: white;
-  color: #1bd0bd;
+  color: #e03e16;
   text-align: center;
   border-radius: 100px;
-  border:1px #1bd0bd solid;
+  border:1px #e03e16 solid;
   justify-content:center;
   display:flex;
   align-items:center;
@@ -78,10 +78,10 @@ page{
   width: 25px;
   height: 25px;
   background-color: white;
-  color: #1bd0bd;
+  color: #e03e16;
   text-align: center;
   border-radius: 100px;
-  border:1px #1bd0bd solid;
+  border:1px #e03e16 solid;
   justify-content:center;
   display:flex;
   align-items:center;
@@ -127,7 +127,7 @@ page{
   width: 240rpx;
   height: 70rpx;
   border-radius: 100rpx;
-  background-color: #1bd0bd;
+  background-color: #e03e16;
 }
 
 .rightText{
@@ -140,7 +140,7 @@ page{
   width: 240rpx;
   height: 70rpx;
   border-radius: 100rpx;
-  background-color: #1bd0bd;
+  background-color: #e03e16;
 }
 
 

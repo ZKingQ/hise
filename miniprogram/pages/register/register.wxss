@@ -39,7 +39,7 @@ page{
   align-items:center;
   width: 360rpx;
   height: 80rpx;
-  background-color: #1bd0bd;
+  background-color: #e03e16;
   margin: 0 auto;
   margin-top: 50rpx;
 }

@@ -56,10 +56,10 @@ page{
   width: 40px;
   height: 40px;
   background-color: white;
-  color: #1bd0bd;
+  color: #e03e16;
   text-align: center;
   border-radius: 100px;
-  border:1px #1bd0bd solid;
+  border:1px #e03e16 solid;
   justify-content:center;
   display:flex;
   align-items:center;
@@ -69,11 +69,11 @@ page{
 .characterChose{
   width: 40px;
   height: 40px;
-  background-color: #1bd0bd;
+  background-color: #e03e16;
   color: white;
   text-align: center;
   border-radius: 100px;
-  border:1px #1bd0bd solid;
+  border:1px #e03e16 solid;
   justify-content:center;
   display:flex;
   align-items:center;
