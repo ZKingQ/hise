@@ -1,19 +1,50 @@
 {
-  "cloud": true,
-  "pages": [
-    "pages/index/index",
-    "pages/userConsole/userConsole",
-    "pages/storageConsole/storageConsole",
-    "pages/databaseGuide/databaseGuide",
-    "pages/addFunction/addFunction",
-    "pages/deployFunctions/deployFunctions",
-    "pages/chooseLib/chooseLib"
+  "pages":[
+    
+    "pages/choiceMain/choiceMain",
+    "pages/analysis/analysis",
+    "pages/multiChoiceDetail/multiChoiceDetail",
+    "pages/register/register",
+    "pages/result/result",
+    "pages/answerCard/answerCard",
+    "pages/personalInformation/personalInformation",
+    "pages/multiChoiceExplain/multiChoiceExplain",
+    "pages/overAnswer/overAnswer",
+    "pages/testHistory/testHistory",
+    "pages/Me/Me",
+    "pages/singleChoiceExplain/singleChoiceExplain",
+    "pages/singleChoiceDetail/singleChoiceDetail",
+    "pages/historyResult/historyResult",
+    "pages/ranking/ranking"
   ],
-  "window": {
-    "backgroundColor": "#F6F6F6",
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "云开发 QuickStart",
-    "navigationBarTextStyle": "black"
-  }
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#1bd0bd",
+    "navigationBarTitleText": "选择题库",
+    "navigationBarTextStyle":"white"
+  },
+ "tabBar": {
+  "selectedColor": "#1bd0db",
+  "color": "#dae5e5",
+  "list": [
+    {
+      "text": "学习",
+      "iconPath": "images/7-01.png",
+      "selectedIconPath": "images/6-01.png",
+      "pagePath": "pages/choiceMain/choiceMain"
+    },
+    {
+      "text": "排名",
+      "iconPath": "images/rank.png",
+      "selectedIconPath": "images/rankClick.png",
+      "pagePath": "pages/ranking/ranking"
+    },
+    {
+      "text": "我的",
+      "iconPath": "images/3-01.png",
+      "selectedIconPath": "images/5-01.png",
+      "pagePath": "pages/Me/Me"
+    }
+  ]
+}
 }
