@@ -8,16 +8,14 @@
     <view class='topLeft'><text style='margin-left:20rpx;'>单项选择</text></view>
     <view class='topRight'>
       <view class='topRightContent'>
-        <text style='color:#e03e16;font-size:50rpx; font-style:italic;margin-right:10rpx;'>{{1}}</text><text> / 20</text>
-                <!-- <text style='color:#1bd0bd;font-size:50rpx; font-style:italic;margin-right:10rpx;'>{{nowQuestionNumber+1}}</text><text> / 20</text> -->
-
+        <text style='color:#e03e16;font-size:50rpx; font-style:italic;margin-right:10rpx;'>{{nowQuestionNumber+1}}</text><text> / 20</text>
       </view>
     </view>
   </view>
 
   <view class='questionTitle'>
     下列选项中，正确的是哪一项（）
-    <!-- {{nowQuestion.title}} -->
+    {{nowQuestion.title}}
   </view>
   
   <!-- 选项A -->
@@ -25,8 +23,8 @@
     <view class='item'>
       <view class='correctCharacter character' wx:if="{{questionList[nowQuestionNumber].userChose=='A'}}" bindtap='choseA'>A</view> 
       <view class='blankCharacter character' wx:if="{{questionList[nowQuestionNumber].answerResult==null||questionList[nowQuestionNumber].answerResult=='blank'||questionList[nowQuestionNumber].userChose!='A'}}" bindtap='choseA'>A</view> 
-      <view class='option'>这里是A的答案</view>
-      <!-- <view class='option'>{{nowQuestion.options[0]}}</view> -->
+      <!-- <view class='option'>这里是A的答案</view> -->
+      <view class='option'>{{nowQuestion.options[0]}}</view>
     </view>
 
   <!-- 选项B -->  
@@ -58,19 +56,10 @@
 
   <view class='lastQuestion' wx:if="{{nowQuestionNumber!=19}}"  bindtap='afterQuestion'>跳过此题</view>
 
-  <!-- <view class='bottom'>
-    <view class='left' bindtap='answerCard'>
-      <image class='leftIcon' src='../../images/1-01.png'></image>
-    </view>
-    <view class='right'>
-      <image class='rightIcon' src='../../images/1-02.png'></image>
-    </view>
-  </view> -->
-
   <view class='bottom'>
     <view class='middle' bindtap='answerCard'>
       <h5>点击查看答题卡</h5>
-      <!-- <image class='leftIcon' src='../../images/1-01.png'></image> -->
+      <image class='leftIcon' src='../../images/1-01.png'></image>
     </view>
   </view>
 

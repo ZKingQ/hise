@@ -1,6 +1,5 @@
 {
-  "pages":[
-    
+  "pages":[  
     "pages/choiceMain/choiceMain",
     "pages/analysis/analysis",
     "pages/multiChoiceDetail/multiChoiceDetail",
@@ -19,7 +18,7 @@
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#e03e16",
-    "navigationBarTitleText": "XXX答题",
+    "navigationBarTitleText": "XXX答题竞赛",
     "navigationBarTextStyle":"white"
   },
  "tabBar": {
@@ -27,7 +26,7 @@
   "color": "#dae5e5",
   "list": [
 { 
-      "text": "学习", 
+      "text": "答题", 
       "iconPath": "images/7-01.png", 
       "selectedIconPath": "images/6-01.png", 
       "pagePath": "pages/choiceMain/choiceMain" 
