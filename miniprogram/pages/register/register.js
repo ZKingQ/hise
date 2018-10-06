@@ -6,8 +6,8 @@ Page({
     currentUserId: null
   },
 
-  
-  onLoad: function (options) {
+
+  onLoad: function(options) {
     that = this;
     var currentUser = Bmob.User.current();
     var currentUserId = currentUser.id;
@@ -20,36 +20,28 @@ Page({
     var queryUser = new Bmob.Query(User);
     // 查询所有数据
     queryUser.get(currentUserId, {
-      success: function (result) {
-        
+      success: function(result) {
+
         var register = result.get("register");
         var content = result.get("content");
       },
-      error: function (object, error) {
+      error: function(object, error) {
         // 查询失败
       }
     });
   },
 
 
-  onShow: function () {
-  
+  onShow: function() {
+
   },
 
 
-  registerSuccess: function (e) {
+  registerSuccess: function(e) {
     var currentUserId = that.data.currentUserId;
     var realName = e.detail.value.realName;
-    var university = e.detail.value.university;
-    var telephone = e.detail.value.telephone;
-    console.log(currentUserId)
-
-    wx.navigateTo({
-      url: '../singleChoiceExplain/singleChoiceExplain',
-    })
-
-
-
+    var className = e.detail.value.className;
+    var studentId = e.detail.value.studentId;
 
     if (!realName) {
       wx.showToast({
@@ -57,45 +49,41 @@ Page({
         image: '../../images/warn.png',
         duration: 2000
       })
-    }
-    else if (!university) {
+    } else if (!className) {
       wx.showToast({
-        title: '请填写您的学校',
+        title: '请填写您的班级',
         image: '../../images/warn.png',
         duration: 2000
       })
-    }
-    else if (!telephone) {
+    } else if (!studentId) {
       wx.showToast({
-        title: '请填写您的电话',
+        title: '请填写您的学号',
         image: '../../images/warn.png',
         duration: 2000
       })
+    } else {
+      wx.navigateTo({
+        url: '../singleChoiceExplain/singleChoiceExplain',
+      })
+      // var User = Bmob.Object.extend("_User");
+      // var queryUser = new Bmob.Query(User);
+      // queryUser.get(currentUserId, {
+      //   success: function (result) {
+      //     result.set('register', true);
+      //     result.set('realName', realName);
+      //     result.set('university', university);
+      //     result.set('telephone', telephone);
+      //     result.save();
+      //     wx.navigateBack(); 
+      //   },
+      //   error: function (object, error) {
+      //   }
+      // });
     }
-    else{
 
-
-
-
-      var User = Bmob.Object.extend("_User");
-      var queryUser = new Bmob.Query(User);
-      queryUser.get(currentUserId, {
-        success: function (result) {
-          result.set('register', true);
-          result.set('realName', realName);
-          result.set('university', university);
-          result.set('telephone', telephone);
-          result.save();
-          wx.navigateBack(); 
-        },
-        error: function (object, error) {
-        }
-      });
-    }
-    
   },
 
-  
+
 
 
 

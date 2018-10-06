@@ -1,11 +1,8 @@
 var that;
-var Bmob = require('../../utils/bmob.js');
+// var Bmob = require('../../utils/bmob.js');
 
 Page({
-  
-
   data: {
-    choseQuestionBank: '',
     currentUserId: null,
     questionList:[],
     nowQuestion:[],
