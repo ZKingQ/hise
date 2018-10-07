@@ -1,15 +1,10 @@
 var that;
-var Bmob = require('../../utils/bmob.js');
 Page({
-
-
   data: {
     score:0,
-    choseQuestionBank:'',
     singleQuestionList: [],
     multiQuestionList: [],
     loading:true,
-    defeatNumber: 0,
     averageScore: 0,
     correctRate: 0
   },
@@ -18,10 +13,6 @@ Page({
   onLoad: function (options) {
     that=this;
 
-    var choseQuestionBank = getApp().globalData.choseQuestionBank;
-    that.setData({
-      choseQuestionBank: choseQuestionBank
-    });
     var currentUser = Bmob.User.current();
     var currentUserId = currentUser.id;
     var getSingleQuestionList = getApp().globalData.singleChoiceAnswerNow;
