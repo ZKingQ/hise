@@ -1,10 +1,11 @@
 {
   "pages":[  
+    "pages/result/result",
+    "pages/singleChoiceDetail/singleChoiceDetail",
     "pages/choiceMain/choiceMain",
     "pages/analysis/analysis",
     "pages/multiChoiceDetail/multiChoiceDetail",
     "pages/register/register",
-    "pages/result/result",
     "pages/answerCard/answerCard",
     "pages/personalInformation/personalInformation",
     "pages/multiChoiceExplain/multiChoiceExplain",
@@ -12,7 +13,6 @@
     "pages/testHistory/testHistory",
     "pages/Me/Me",
     "pages/singleChoiceExplain/singleChoiceExplain",
-    "pages/singleChoiceDetail/singleChoiceDetail",
     "pages/historyResult/historyResult"
   ],
   "window":{

@@ -1,73 +1,74 @@
-var Bmob = require('utils/bmob.js');
-Bmob.initialize("", "");
- 
 App({
   onLaunch: function () {
-
-    var user = new Bmob.User();//开始注册用户
-
+    if (!wx.cloud) {
+      console.error('请使用 2.2.3 或以上的基础库以使用云能力')
+    } else {
+      wx.cloud.init({
+        traceUser: true,
+      })
+    }
     var newOpenid = wx.getStorageSync('openid')
     if (!newOpenid) {
       wx.login({
-        success: function (res) {
-          user.loginWithWeapp(res.code).then(function (user) {
-            var openid = user.get("authData").weapp.openid;
-            console.log(user, 'user', user.id, res);
+        // success: function (res) {
+        //   user.loginWithWeapp(res.code).then(function (user) {
+        //     var openid = user.get("authData").weapp.openid;
+        //     console.log(user, 'user', user.id, res);
 
-            if (user.get("nickName")) {
-              // 第二次访问
-              console.log(user.get("nickName"), 'res.get("nickName")');
+        //     if (user.get("nickName")) {
+        //       // 第二次访问
+        //       console.log(user.get("nickName"), 'res.get("nickName")');
 
-              wx.setStorageSync('openid', openid)
-            } else {
-              var User = Bmob.Object.extend("_User");
-              var queryUser = new Bmob.Query(User);
-              queryUser.get(user.id, {
-                success: function (result) {
-                  result.set("register", false);
-                  result.save();
+        //       wx.setStorageSync('openid', openid)
+        //     } else {
+        //       var User = Bmob.Object.extend("_User");
+        //       var queryUser = new Bmob.Query(User);
+        //       queryUser.get(user.id, {
+        //         success: function (result) {
+        //           result.set("register", false);
+        //           result.save();
 
-                },
-                error: function (result, error) {
+        //         },
+        //         error: function (result, error) {
       
-                }
-              });
+        //         }
+        //       });
               
 
-              //保存用户其他信息
-              wx.getUserInfo({
-                success: function (result) {
+        //       //保存用户其他信息
+        //       wx.getUserInfo({
+        //         success: function (result) {
 
-                  var userInfo = result.userInfo;
-                  var nickName = userInfo.nickName;
-                  var userPic = userInfo.avatarUrl;
-                  console.log()
-                  var u = Bmob.Object.extend("_User");
-                  var query = new Bmob.Query(u);
-                  // 这个 id 是要修改条目的 id，你在生成这个存储并成功时可以获取到，请看前面的文档
-                  query.get(user.id, {
-                    success: function (result) {
-                      // 自动绑定之前的账号
+        //           var userInfo = result.userInfo;
+        //           var nickName = userInfo.nickName;
+        //           var userPic = userInfo.avatarUrl;
+        //           console.log()
+        //           var u = Bmob.Object.extend("_User");
+        //           var query = new Bmob.Query(u);
+        //           // 这个 id 是要修改条目的 id，你在生成这个存储并成功时可以获取到，请看前面的文档
+        //           query.get(user.id, {
+        //             success: function (result) {
+        //               // 自动绑定之前的账号
 
-                      result.set('nickName', nickName);
-                      result.set("userPic", userPic);
-                      result.set("openid", openid);
-                      result.save();
+        //               result.set('nickName', nickName);
+        //               result.set("userPic", userPic);
+        //               result.set("openid", openid);
+        //               result.save();
 
-                    }
-                  });
+        //             }
+        //           });
 
-                }
-              });
+        //         }
+        //       });
 
 
-            }
+        //     }
 
-          }, function (err) {
-            console.log(err, 'errr');
-          });
+        //   }, function (err) {
+        //     console.log(err, 'errr');
+        //   });
 
-        }
+        // }
       });
     }
 
@@ -99,6 +100,5 @@ App({
     multiChoiceAnswerNow: [],
     choseQuestionBank:'',
     score:0
-
   }
 })

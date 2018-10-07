@@ -1,29 +1,28 @@
 <view class="page">
-   <view class="loading_box" wx:if="{{loading}}">
+   <!-- <view class="loading_box" wx:if="{{loading}}">
       <view class="loading3 loading3_1"></view>
       <view class="loading3 loading3_2"></view>
       <view class="loading3 loading3_3"></view>
-    </view>
+    </view> -->
   <view class='grade'><text style='font-size:87rpx;'>{{score}}</text> /60分</view>
-
    <view class='dataAnalysis'>
-    <!-- <view class='dataAnalysisLeft'>
+    <view class='dataAnalysisLeft'>
       <view class='content'>
         <view class='dataAnalysisText'>已击败考生</view>
         <view class='dataAnalysisNumber'>{{defeatNumber}}人</view>
       </view>
     </view> -->
-    <!-- <view class='dataAnalysisMiddle'>
+    <view class='dataAnalysisMiddle'>
       <view class='content'>
         <view class='dataAnalysisText'>全站平均分</view>
         <view class='dataAnalysisNumber'>{{averageScore}}分</view>
       </view>
-    </view> -->
+    </view>
     <view class='dataAnalysisRight'>
       <view class='content'>
         <view class='dataAnalysisText'>得分率</view>
         <view class='dataAnalysisNumber'>90%</view>
-        <!-- <view class='dataAnalysisNumber'>{{correctRate}}%</view> -->
+        <view class='dataAnalysisNumber'>{{correctRate}}%</view>
       </view>
     </view>
   </view> 

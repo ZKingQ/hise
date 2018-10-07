@@ -1,67 +1,43 @@
 <view class="page">
-   <!-- <view class="loading_box" wx:if="{{loading}}">
-      <view class="loading3 loading3_1"></view>
-      <view class="loading3 loading3_2"></view>
-      <view class="loading3 loading3_3"></view>
-    </view> -->
-  <view class='top'>  
-    <view class='topLeft'><text style='margin-left:20rpx;'>单项选择</text></view>
+  <view class="loading_box" wx:if="{{loading}}">
+    <view class="loading3 loading3_1"></view>
+    <view class="loading3 loading3_2"></view>
+    <view class="loading3 loading3_3"></view>
+  </view>
+  <view class='top'>
+    <view class='topLeft'>
+      <text style='margin-left:20rpx;'>单项选择</text>
+    </view>
     <view class='topRight'>
       <view class='topRightContent'>
-        <text style='color:#e03e16;font-size:50rpx; font-style:italic;margin-right:10rpx;'>{{nowQuestionNumber+1}}</text><text> / 20</text>
+        <text style='color:#e03e16;font-size:50rpx; font-style:italic;margin-right:10rpx;'>{{nowQuestionNumber}}</text>
+        <text> / 20</text>
       </view>
     </view>
   </view>
 
   <view class='questionTitle'>
-    下列选项中，正确的是哪一项（）
-    {{nowQuestion.title}}
+    {{nowQuestion.question}} 下列选项中，正确的是哪一项（）
   </view>
-  
-  <!-- 选项A -->
+
+  <!-- 选项 -->
   <view class='questionOption'>
-    <view class='item'>
-      <view class='correctCharacter character' wx:if="{{questionList[nowQuestionNumber].userChose=='A'}}" bindtap='choseA'>A</view> 
-      <view class='blankCharacter character' wx:if="{{questionList[nowQuestionNumber].answerResult==null||questionList[nowQuestionNumber].answerResult=='blank'||questionList[nowQuestionNumber].userChose!='A'}}" bindtap='choseA'>A</view> 
-      <!-- <view class='option'>这里是A的答案</view> -->
-      <view class='option'>{{nowQuestion.options[0]}}</view>
-    </view>
-
-  <!-- 选项B -->  
-    <view class='item'>
-<view class='correctCharacter character' wx:if="{{questionList[nowQuestionNumber].userChose=='B'}}" bindtap='choseB'>B</view> 
-      <view class='blankCharacter character' wx:if="{{questionList[nowQuestionNumber].answerResult==null||questionList[nowQuestionNumber].answerResult=='blank'||questionList[nowQuestionNumber].userChose!='B'}}" bindtap='choseB'>B</view> 
-      <view class='option'>这里是B的答案 </view>
-      <!-- <view class='option'>{{nowQuestion.options[1]}}</view> -->
-    </view>
-
-  <!-- 选项C -->
-    <view class='item'>
-<view class='correctCharacter character' wx:if="{{questionList[nowQuestionNumber].userChose=='C'}}" bindtap='choseC'>C</view> 
-      <view class='blankCharacter character' wx:if="{{questionList[nowQuestionNumber].answerResult==null||questionList[nowQuestionNumber].answerResult=='blank'||questionList[nowQuestionNumber].userChose!='C'}}" bindtap='choseC'>C</view> 
-      <view class='option'>这里是C的答案</view>
-      <!-- <view class='option'>{{nowQuestion.options[2]}}</view> -->
-    </view>
-  
-  <!-- 选项D -->
-    <view class='item'>
-<view class='correctCharacter character' wx:if="{{questionList[nowQuestionNumber].userChose=='D'}}" bindtap='choseD'>D</view> 
-      <view class='blankCharacter character' wx:if="{{questionList[nowQuestionNumber].answerResult==null||questionList[nowQuestionNumber].answerResult=='blank'||questionList[nowQuestionNumber].userChose!='D'}}" bindtap='choseD'>D</view> 
-      <view class='option'>这里是D的答案</view>
-      <!-- <view class='option'>{{nowQuestion.options[3]}}</view> -->
+    <view class='item' wx:for="{{nowQuestion.options}}" wx:key="userInfoListId">
+      <view class='blankCharacter character' wx:if="{{!userChose || userChose != item.name && item.name != nowQuestion.answer}}" data-option="{{item.name}}" catchtap='chose'>{{item.name}}</view>
+      <view class='correctCharacter character' wx:if="{{userChose && nowQuestion.answer==item.name}}">{{item.name}}</view>
+      <view class='discorrectCharacter character' wx:if="{{userChose==item.name && nowQuestion.answer!=userChose}}">{{item.name}}</view>
+      <view class='option'>{{item.detail}}</view>
     </view>
   </view>
 
-  <!-- <view class='frontQuestion' wx:if="{{nowQuestionNumber!=0}}"  bindtap='frontQuestion'>←</view> -->
+  <!-- <view class='frontQuestion' wx:if="{true}} "  bindtap='frontQuestion'>←</view> -->
 
-  <view class='lastQuestion' wx:if="{{nowQuestionNumber!=19}}"  bindtap='afterQuestion'>跳过此题</view>
+  <view class='lastQuestion' wx:if="{{userChose && userChose != nowQuestion.answer}}" bindtap='showNextQuestion'>下一题</view>
 
-  <view class='bottom'>
+  <!-- <view class='bottom'>
     <view class='middle' bindtap='answerCard'>
       <h5>点击查看答题卡</h5>
       <image class='leftIcon' src='../../images/1-01.png'></image>
     </view>
-  </view>
-
-
+  </view> -->
 </view>
