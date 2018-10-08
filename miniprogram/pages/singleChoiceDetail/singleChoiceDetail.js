@@ -3,13 +3,11 @@ var that;
 
 Page({
   data: {
-    currentUserId: null,
     questionList: [],
     nowQuestion: {},
     nowQuestionNumber: 0,
     singleChoiceNumber: 0,
     userChose: '',
-    score: 0,
     loading: true
   },
 
@@ -48,7 +46,7 @@ Page({
   },
 
   showNextQuestion: function() {
-    if (that.data.nowQuestionNumber == 15) {
+    if (that.data.nowQuestionNumber == that.data.singleChoiceNumber) {
       that.overSingleChoice()
       return
     }
@@ -97,5 +95,4 @@ Page({
       url: '../multiChoiceExplain/multiChoiceExplain'
     });
   }
-
 })

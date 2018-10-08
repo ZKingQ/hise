@@ -95,20 +95,24 @@ page {
   width: 80%;
 }
 
-/* .frontQuestion{
-  margin-left: 30rpx;
-  text-align: center;
-  justify-content:center;
-  display:flex;
-  align-items:center;
+.submit{
+  display: flex;
+  font-size: 30rpx;
+  background-color: #e03e16;
+  width: 250rpx;
+  height: 80rpx;
+  border-radius: 100rpx;
   color: #ffffff;
-  position: fixed;
-  bottom: 130rpx;
-  width: 90rpx;
-  height: 40rpx;
-  background-color: #1bd0bd;
-  border-radius: 15rpx;
-} */
+  text-align: center;
+  margin: auto;
+  justify-content:center;
+  align-items:center;
+}
+
+.handIcon{
+  width: 60rpx;
+  height: 60rpx;
+}
 
 .lastQuestion {
   font-size: 30rpx;

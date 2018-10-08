@@ -30,5 +30,12 @@
       <view class='option'>{{item.detail}}</view>
     </view>
   </view>
-  <view class='lastQuestion' wx:if="{{userChose && userChose != nowQuestion.answer}}" bindtap='showNextQuestion'>下一题</view>
+  <view>
+  <text>\r\n</text>
+  </view>
+  <view class='submit' bindtap='afterQuestion' wx:if="{{userChose && userChose != nowQuestion.answer}}" bindtap='showNextQuestion'>
+    <image class='handIcon' src='../../images/hand.png'></image>
+    下一题
+  </view>
+  <!-- <view class='lastQuestion' wx:if="{{userChose && userChose != nowQuestion.answer}}" bindtap='showNextQuestion'>下一题</view> -->
 </view>
