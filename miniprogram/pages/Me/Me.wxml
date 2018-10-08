@@ -7,8 +7,7 @@
 
   <view class='testHistory'>
     <view class='text'>姓名：</view>
-    <view class='text' style='color:#343535;'>王小五</view>
-    <!-- <view class='text' style='color:#343535;'>{{realName}}</view> -->
+    <view class='text' style='color:#343535;'>{{realName}}</view>
   </view>
 
 
@@ -16,16 +15,14 @@
 
   <view class='testHistory'>
     <view class='text'>班级：</view>
-    <view class='text' style='color:#343535;'>软工161</view>
-    <!-- <view class='text' style='color:#343535;'>{{university}}</view> -->
+    <view class='text' style='color:#343535;'>{{className}}</view>
   </view>
 
   <view class='grayLine1'></view>
 
   <view class='personalInformation'>
     <view class='text'>学号:</view>
-    <view class='text' style='color:#343535;'>2016210405033</view>
-    <!-- <view class='text' style='color:#343535;'>{{telephone}}</view> -->
+    <view class='text' style='color:#343535;'>{{studentId}}</view>
   </view>
   
   <view class='grayLine'></view>

@@ -59,9 +59,11 @@ Page({
         duration: 2000
       })
      
-    } else {
-      wx.navigateTo({
-        url: '../singleChoiceExplain/singleChoiceExplain',
+    } 
+    else {
+      console.log("111");
+      wx.switchTab({
+        url: '../choiceMain/choiceMain'
       })
     }
 

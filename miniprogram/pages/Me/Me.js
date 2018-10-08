@@ -5,12 +5,33 @@ Page({
 
   data: {
     userInfo: {},
-    currentUserId:null
+    realName:null,
+    className:null,
+    studentId:null
   },
 
  
   onLoad: function () {
     that = this;
+    //console.log(realName)
+    const db = wx.cloud.database()
+    db.collection('users').where({
+      _openid: app.globalData.openid
+    }).get({
+      success:function(res){
+        console.log(res.data[0].realName)
+        console.log(res.data[0].className)
+        console.log(res.data[0].studentId)
+        var realName = res.data[0].realName
+        that.setData({
+           realName:realName,
+           className:res.data[0].className,
+           studentId:res.data[0].studentId
+        })
+        
+      }
+    })
+    console.log(this.realName)
     wx.getUserInfo({
       success: function (res) {
         console.log(res);
@@ -27,29 +48,29 @@ Page({
   
   },
 
-  testHistory:function(){
-    var currentUserId = that.data.currentUserId;
-    var User = Bmob.Object.extend("_User");
-    var queryUser = new Bmob.Query(User);
-    queryUser.get(currentUserId, {
-      success: function (result) {
-        var register = result.get("register");
-        if (register==false){
-          wx.navigateTo({
-            url: '../register/register'
-          })
-        }
-        else{
-          wx.navigateTo({
-            url: '../testHistory/testHistory'
-          })
-        }
-      },
-      error: function (object, error) {
-        // 查询失败
-      }
-    });
-  },
+  // testHistory:function(){
+  //   var currentUserId = that.data.currentUserId;
+  //   var User = Bmob.Object.extend("_User");
+  //   var queryUser = new Bmob.Query(User);
+  //   queryUser.get(currentUserId, {
+  //     success: function (result) {
+  //       var register = result.get("register");
+  //       if (register==false){
+  //         wx.navigateTo({
+  //           url: '../register/register'
+  //         })
+  //       }
+  //       else{
+  //         wx.navigateTo({
+  //           url: '../testHistory/testHistory'
+  //         })
+  //       }
+  //     },
+  //     error: function (object, error) {
+  //       // 查询失败
+  //     }
+  //   });
+  // },
 
   // personalInformation: function () {
   //   var currentUserId = that.data.currentUserId;

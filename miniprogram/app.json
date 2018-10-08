@@ -1,6 +1,8 @@
 {
   "pages":[
+    
     "pages/choiceMain/choiceMain",
+    "pages/Me/Me",
     "pages/result/result", 
     "pages/singleChoiceDetail/singleChoiceDetail",
     "pages/analysis/analysis",
@@ -11,7 +13,7 @@
     "pages/multiChoiceExplain/multiChoiceExplain",
     "pages/overAnswer/overAnswer",
     "pages/testHistory/testHistory",
-    "pages/Me/Me",
+    
     "pages/singleChoiceExplain/singleChoiceExplain",
     "pages/historyResult/historyResult",
     "pages/ranking/ranking"
