@@ -16,10 +16,13 @@ page{
 }
 
 .userinfo-avatar {
+  overflow:hidden;
+  display: block;
   width: 128rpx;
   height: 128rpx;
   margin: 20rpx;
-  border-radius: 50%;
+  margin-top: 50rpx;
+  border-radius:50%;
 }
 
 .userinfo-nickname {

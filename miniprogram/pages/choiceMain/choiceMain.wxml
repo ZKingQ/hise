@@ -1,11 +1,8 @@
 <view class="page">
   <view class="container">
     <view class="userinfo">
-      <text wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"></text>
-      <block wx:else>
-        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-      </block>
+      <open-data  class="userinfo-avatar" type="userAvatarUrl"></open-data>
+      <open-data class="userinfo-nickname" type="userNickName" lang="zh_CN"></open-data>
     </view>
   </view>
 

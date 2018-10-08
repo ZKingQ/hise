@@ -66,7 +66,5 @@ Page({
         url: '../choiceMain/choiceMain'
       })
     }
-
   },
-
 })

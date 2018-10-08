@@ -32,84 +32,9 @@ Page({
       }
     })
     console.log(this.realName)
-    wx.getUserInfo({
-      success: function (res) {
-        console.log(res);
-        var avatarUrl = 'userInfo.avatarUrl';
-        var nickName = 'userInfo.nickName';
-        that.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    })
   },
   onShow: function () {
   
   },
-
-  // testHistory:function(){
-  //   var currentUserId = that.data.currentUserId;
-  //   var User = Bmob.Object.extend("_User");
-  //   var queryUser = new Bmob.Query(User);
-  //   queryUser.get(currentUserId, {
-  //     success: function (result) {
-  //       var register = result.get("register");
-  //       if (register==false){
-  //         wx.navigateTo({
-  //           url: '../register/register'
-  //         })
-  //       }
-  //       else{
-  //         wx.navigateTo({
-  //           url: '../testHistory/testHistory'
-  //         })
-  //       }
-  //     },
-  //     error: function (object, error) {
-  //       // 查询失败
-  //     }
-  //   });
-  // },
-
-  // personalInformation: function () {
-  //   var currentUserId = that.data.currentUserId;
-  //   var User = Bmob.Object.extend("_User");
-  //   var queryUser = new Bmob.Query(User);
-  //   queryUser.get(currentUserId, {
-  //     success: function (result) {
-  //       var register = result.get("register");
-  //       if (register == false) {
-  //         wx.navigateTo({
-  //           url: '../register/register'
-  //         })
-  //       }
-  //       else {
-  //         wx.navigateTo({
-  //           url: '../personalInformation/personalInformation'
-  //         })
-  //       }
-  //     },
-  //     error: function (object, error) {
-  //       // 查询失败
-  //     }
-  //   });
-  // },
-
-  // onShareAppMessage: function (res) {
-  //   if (res.from === 'button') {
-  //     console.log(res.target)
-  //   }
-  //   return {
-  //     title: '大学考试题库',
-  //     path: '/pages/choiceMain/choiceMain',
-  //     success: function (res) {
-  //       // 转发成功
-  //     },
-  //     fail: function (res) {
-  //       // 转发失败
-  //     }
-  //   }
-  // }
  
 })
