@@ -186,7 +186,7 @@ text-align: center;
 .submit{
   display: flex;
   font-size: 30rpx;
-  background-color: #1bd0bd;
+  background-color: #6a6ad8;
   width: 250rpx;
   height: 80rpx;
   border-radius: 100rpx;

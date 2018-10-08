@@ -1,34 +1,33 @@
 var that;
 Page({
   data: {
-    choseQuestionBank: '',
-    currentUserId: null,
     questionList: [],
-    nowQuestion: [],
-    nowQuestionNumber: '',
-    choseCharacter: [],
-    score: 0,
-    choseA: false,
-    choseB: false,
-    choseC: false,
-    choseD: false
+    nowQuestion: {},
+    nowQuestionNumber: 0,
+    multiChoiceNumber: 0,
+    userChose: {},
+    loading: true,
+    answered: false,
+    hint: ''
   },
 
 
-  onLoad: function () {
+  onLoad: function() {
     that = this;
+    that.setData({
+      multiChoiceNumber: getApp().globalData.multiChoiceNumber
+    })
+    that.getQuestions()
   },
 
 
-  onShow: function () {
-  
-  },
+  onShow: function() {},
 
-  getQuestions: function () {
+  getQuestions: function() {
     wx.cloud.callFunction({
       name: 'getQuestions',
       data: {
-        num: that.data.singleChoiceNumber,
+        num: that.data.multiChoiceNumber,
         singleChoice: 0
       },
       success: res => {
@@ -47,24 +46,96 @@ Page({
     })
   },
 
-  choseA: function () {
-    
+  showNextQuestion: function() {
+    if (that.data.nowQuestionNumber == that.data.multiChoiceNumber) {
+      that.submit()
+      return
+    }
+    let nowQuestion = that.data.questionList[that.data.nowQuestionNumber]
+    // console.log(nowQuestion)
+    nowQuestion.options = []
+    nowQuestion.options[0] = {
+      name: 'A',
+      detail: nowQuestion.A
+    }
+    nowQuestion.options[1] = {
+      name: 'B',
+      detail: nowQuestion.B
+    }
+    nowQuestion.options[2] = {
+      name: 'C',
+      detail: nowQuestion.C
+    }
+    nowQuestion.options[3] = {
+      name: 'D',
+      detail: nowQuestion.D
+    }
+    that.setData({
+      hint: '',
+      userChose: {},
+      answered: false,
+      nowQuestion: nowQuestion,
+      nowQuestionNumber: that.data.nowQuestionNumber + 1
+    })
   },
 
-  notChoseA: function () {
-    
+  chose: function(event) {
+    // console.log(event)
+    let tmp = event.currentTarget.dataset.option
+    let userChose = that.data.userChose
+    // console.log(userChose)
+    userChose[tmp] = 1
+    that.setData({
+      userChose: userChose
+    })
   },
 
-  submit:function(){
+  unChose: function(event) {
+    // console.log(event)
+    let tmp = event.currentTarget.dataset.option
+    let userChose = that.data.userChose
+    console.log(userChose)
+    userChose[tmp] = ''
+    that.setData({
+      userChose: userChose
+    })
+  },
+
+  answer: function() {
+    if (that.data.answered) {
+      that.showNextQuestion()
+      return;
+    }
+    let answer = that.data.nowQuestion.answer,
+      userChose = that.data.userChose,
+      flag = true
+    for (let i = 0; i < answer.length; ++i) {
+      if (!userChose[answer[i]])
+        flag = false
+    }
+    let tot = 0
+    for (let i in userChose)
+      if (userChose[i])
+        ++tot
+    if (tot != answer.length)
+      flag = false
+    if (flag) {
+      getApp().globalData.score++;
+      setTimeout(that.showNextQuestion, 300)
+      that.setData({
+        hint: "回答正确"
+      })
+    } else {
+      that.setData({
+        hint: "正确答案：" + that.data.nowQuestion.answer + "\r\n" + that.data.nowQuestion.analyze,
+        answered: true
+      })
+    }
+  },
+
+  submit: function() {
     wx.redirectTo({
       url: '../result/result'
     });
   }
-
-
-
-
-  
-
-
 })
