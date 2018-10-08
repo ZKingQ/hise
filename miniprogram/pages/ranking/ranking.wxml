@@ -1,11 +1,4 @@
 <view class="page">
-    <view  class="choseReason" >
-      <view class="reasonItem"  wx:for="{{QBList}}" data-index="{{index}}" bindtap="choseQB" style="{{index==id?'background-color: #1bd0bd;color:#fff':' background-color: #efefef;' }}">
-        <view  bindtap="falseInformation">{{item}}</view>
-      </view>
-    </view>
- 
-
      <view class="loading_box" wx:if="{{loading}}">
       <view class="loading3 loading3_1"></view>
       <view class="loading3 loading3_2"></view>

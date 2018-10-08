@@ -1,5 +1,5 @@
 var that;
-var Bmob = require('../../utils/bmob.js');
+// var Bmob = require('../../utils/bmob.js');
 const app = getApp()
 // userLogin();
 
@@ -164,7 +164,7 @@ Page({
   //         var choseQuestionBank = that.data.choseQuestionBank;
   //         if (choseQuestionBank != "点击选择") {
   //           getApp().globalData.choseQuestionBank = choseQuestionBank;
-  //           getApp().globalData.score = 0;
+  //         
 
   //           wx.navigateTo({
   //             url: '../singleChoiceExplain/singleChoiceExplain'

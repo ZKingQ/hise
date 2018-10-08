@@ -4,15 +4,7 @@ Page({
 
  
   data: {
-    QBList: ['大学计算机期末考试题库', '计算机二级office题库', '毛概期末考试题库', '中国近代史期末考试题库', '马克思原理期末考试题库', '形式与政策'],
-    choseQB: '大学计算机期末考试题库',
-    id:0,
-    ranking_list:[],
-    loading: true,
-    page_index: 0,
-    has_more: true,
-    listBlock:0,
-    like:false
+
   },
 
 
@@ -194,21 +186,21 @@ Page({
     return false;
   },
 
-  onShareAppMessage: function (res) {
-    if (res.from === 'button') {
-      console.log(res.target)
-    }
-    return {
-      title: '大学考试题库',
-      path: '/pages/choiceMain/choiceMain',
-      success: function (res) {
-        // 转发成功
-      },
-      fail: function (res) {
-        // 转发失败
-      }
-    }
-  }
+  // onShareAppMessage: function (res) {
+  //   if (res.from === 'button') {
+  //     console.log(res.target)
+  //   }
+  //   return {
+  //     title: '大学考试题库',
+  //     path: '/pages/choiceMain/choiceMain',
+  //     success: function (res) {
+  //       // 转发成功
+  //     },
+  //     fail: function (res) {
+  //       // 转发失败
+  //     }
+  //   }
+  // }
 
 
   

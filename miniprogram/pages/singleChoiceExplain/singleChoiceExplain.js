@@ -8,12 +8,7 @@ Page({
   },
 
   onLoad: function () {
-    that=this;
-    var choseQuestionBank = getApp().globalData.choseQuestionBank; 
-    that.setData({
-      choseQuestionBank: choseQuestionBank
-    });
-    console.log(that.data.choseQuestionBank)
+
   },
 
 
@@ -22,7 +17,7 @@ Page({
   },
 
   action: function () {
-    var choseQuestionBank = that.data.choseQuestionBank;
+    
     wx.redirectTo({
       url: '../singleChoiceDetail/singleChoiceDetail'
       // url: '../singleChoiceDetail/singleChoiceDetail?choseQuestionBank=' + choseQuestionBank

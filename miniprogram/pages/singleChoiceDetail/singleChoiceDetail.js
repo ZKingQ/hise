@@ -1,3 +1,4 @@
+var app=getApp();
 var that;
 
 Page({
@@ -32,7 +33,7 @@ Page({
   },
 
   showNextQuestion: function() {
-    if (that.data.nowQuestionNumber > 1) {
+    if (that.data.nowQuestionNumber > 19) {
       that.overSingleChoice()
       return
     }
@@ -101,13 +102,19 @@ Page({
   frontQuestion: function() {},
 
   //答题卡
-  answerCard: function() {
-    getApp().globalData.singleChoiceAnswerNow = that.data.questionList,
-      getApp().globalData.multiChoiceAnswerNow = that.data.newMultiQuestionList;
-    wx.navigateTo({
-      url: '../answerCard/answerCard'
-    });
-  },
+//Updated upstream
+//   answerCard: function() {
+//     getApp().globalData.singleChoiceAnswerNow = that.data.questionList,
+//       getApp().globalData.multiChoiceAnswerNow = that.data.newMultiQuestionList;
+
+//   answerCard:function(){
+//     // getApp().globalData.singleChoiceAnswerNow = that.data.questionList,
+//     // getApp().globalData.multiChoiceAnswerNow = that.data.newMultiQuestionList;
+// >>>>>>> Stashed changes
+//     wx.navigateTo({
+//       url: '../answerCard/answerCard'
+//     });
+//   },
 
   overSingleChoice: function(questionNumber) {
     wx.redirectTo({

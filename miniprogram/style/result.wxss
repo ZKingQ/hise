@@ -11,7 +11,8 @@ page{
  
 .grade{
   text-align: center;
-  margin: 87rpx 0rpx 80rpx 0rpx;
+  /* margin: 87rpx 0rpx 80rpx 0rpx; */
+  margin-top: 30%;
 }
 
 .dataAnalysis{
@@ -128,7 +129,7 @@ page{
   position: fixed;
   bottom: 0;
   height: 100rpx;
-  border-top: 1px solid #c9c9d8;
+  border-top: 0px solid #c9c9d8;
 }
 
 .left{
@@ -176,5 +177,4 @@ page{
   border-radius: 100rpx;
   background-color: #e03e16;
 }
-
 

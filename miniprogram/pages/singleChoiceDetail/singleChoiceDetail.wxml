@@ -24,7 +24,7 @@
   <view class='questionOption'>
     <view class='item' wx:for="{{nowQuestion.options}}" wx:key="userInfoListId">
       <view class='blankCharacter character' wx:if="{{!userChose || userChose != item.name && item.name != nowQuestion.answer}}" data-option="{{item.name}}" catchtap='chose'>{{item.name}}</view>
-      <view class='correctCharacter character' wx:if="{{userChose && nowQuestion.answer==item.name}}">{{item.name}}</view>
+      <view class='correctCharacter character'  wx:if="{{userChose && nowQuestion.answer==item.name}}">{{item.name}}</view>
       <view class='discorrectCharacter character' wx:if="{{userChose==item.name && nowQuestion.answer!=userChose}}">{{item.name}}</view>
       <view class='option'>{{item.detail}}</view>
     </view>

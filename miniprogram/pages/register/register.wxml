@@ -21,6 +21,6 @@
 
       <button class='ensure'  formType="submit" >确定</button>
 
-      <!-- <view class='tip'>一经确认不可修改</view> -->
+      <view class='tip'>一经确认不可修改</view>
     </form>
 </view>

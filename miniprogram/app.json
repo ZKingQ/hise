@@ -1,8 +1,8 @@
 {
-  "pages":[  
-    "pages/result/result",
-    "pages/singleChoiceDetail/singleChoiceDetail",
+  "pages":[
     "pages/choiceMain/choiceMain",
+    "pages/result/result", 
+    "pages/singleChoiceDetail/singleChoiceDetail",
     "pages/analysis/analysis",
     "pages/multiChoiceDetail/multiChoiceDetail",
     "pages/register/register",
@@ -13,7 +13,8 @@
     "pages/testHistory/testHistory",
     "pages/Me/Me",
     "pages/singleChoiceExplain/singleChoiceExplain",
-    "pages/historyResult/historyResult"
+    "pages/historyResult/historyResult",
+    "pages/ranking/ranking"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -25,12 +26,18 @@
   "selectedColor": "#e03e16",
   "color": "#dae5e5",
   "list": [
-{ 
+    { 
       "text": "答题", 
       "iconPath": "images/7-01.png", 
       "selectedIconPath": "images/6-01.png", 
       "pagePath": "pages/choiceMain/choiceMain" 
     }, 
+    {
+      "text": "排名",
+      "iconPath": "images/4-01.png",
+      "selectedIconPath": "images/4-02.png",
+      "pagePath": "pages/ranking/ranking"
+    },
     { 
       "text": "我的", 
       "iconPath": "images/3-01.png", 
