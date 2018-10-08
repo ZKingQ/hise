@@ -11,7 +11,7 @@
     <view class='topRight'>
       <view class='topRightContent'>
         <text style='color:#e03e16;font-size:50rpx; font-style:italic;margin-right:10rpx;'>{{nowQuestionNumber}}</text>
-        <text> / 15</text>
+        <text> / {{singleChoiceNumber}}</text>
       </view>
     </view>
   </view>

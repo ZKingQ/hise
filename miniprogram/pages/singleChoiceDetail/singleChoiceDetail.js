@@ -1,4 +1,4 @@
-var app=getApp();
+var app = getApp();
 var that;
 
 Page({
@@ -7,27 +7,33 @@ Page({
     questionList: [],
     nowQuestion: {},
     nowQuestionNumber: 0,
+    singleChoiceNumber: 0,
     userChose: '',
     score: 0,
     loading: true
   },
 
+  onLoad: function() {
+    that = this;
+    let singleChoiceNumber = getApp().globalData.singleChoiceNumber
+    that.setData({
+      singleChoiceNumber: singleChoiceNumber
+    })
+    that.getQuestions()
+  },
+
+  onShow: function() {},
+
   getQuestions: function() {
     wx.cloud.callFunction({
-      name: 'getSingleQuestions',
-      data: {},
+      name: 'getQuestions',
+      data: {
+        num: that.data.singleChoiceNumber,
+        singleChoice: 1
+      },
       success: res => {
-        // console.log('[云函数] [getSingleQuestions] ', res.result.data)
-        let allquestions = res.result.data
-        let questionList = []
-        let ranNum = 15;
-        for (var i = 0; i < ranNum; i++) {
-          let ran = Math.floor(Math.random() * (allquestions.length - i));
-          questionList.push(allquestions[ran]);
-          let center = allquestions[ran];
-          allquestions[ran] = allquestions[allquestions.length - i - 1];
-          allquestions[allquestions.length - i - 1] = center;
-        }
+        // console.log('[云函数] [getQuestions] ', res.result)
+        let questionList = res.result
         // console.log(questionList, questionList.length)
         that.setData({
           questionList: questionList,
@@ -36,7 +42,7 @@ Page({
         that.showNextQuestion()
       },
       fail: err => {
-        console.error('[云函数] [getSingleQuestions] 调用失败', err)
+        console.error('[云函数] [getQuestions] 调用失败', err)
       }
     })
   },
@@ -46,7 +52,7 @@ Page({
       that.overSingleChoice()
       return
     }
-    var nowQuestion = that.data.questionList[that.data.nowQuestionNumber]
+    let nowQuestion = that.data.questionList[that.data.nowQuestionNumber]
     // console.log(nowQuestion)
     nowQuestion.options = []
     nowQuestion.options[0] = {
@@ -72,29 +78,6 @@ Page({
     })
   },
 
-  onLoad: function() {
-    that = this;
-    this.getQuestions()
-  },
-
-  getRandomSingleChoice: function(arr, count) {
-    var shuffled = arr.slice(0),
-      i = arr.length,
-      min = i - count,
-      temp, index;
-    while (i-- > min) {
-      index = Math.floor((i + 1) * Math.random());
-      temp = shuffled[index];
-      shuffled[index] = shuffled[i];
-      shuffled[i] = temp;
-    }
-    return shuffled.slice(min);
-  },
-
-  onShow: function() {
-
-  },
-
   chose: function(event) {
     // console.log(event)
     var answer = that.data.nowQuestion.answer;
@@ -107,8 +90,6 @@ Page({
       setTimeout(that.showNextQuestion, 300)
     }
   },
-
-  frontQuestion: function() {},
 
   overSingleChoice: function(questionNumber) {
     wx.redirectTo({

@@ -1,20 +1,20 @@
 {
   "pages":[
     
-    "pages/multiChoiceExplain/multiChoiceExplain",
+    "pages/singleChoiceDetail/singleChoiceDetail",
+    "pages/multiChoiceDetail/multiChoiceDetail",
     "pages/choiceMain/choiceMain",
     "pages/Me/Me",
     "pages/result/result", 
     "pages/analysis/analysis",
-    "pages/multiChoiceDetail/multiChoiceDetail",
     "pages/register/register",
     "pages/answerCard/answerCard",
-    "pages/personalInformation/personalInformation",
     "pages/overAnswer/overAnswer",
     "pages/testHistory/testHistory",
+    "pages/personalInformation/personalInformation",
     
-    "pages/singleChoiceDetail/singleChoiceDetail",
     "pages/singleChoiceExplain/singleChoiceExplain",
+    "pages/multiChoiceExplain/multiChoiceExplain",
     "pages/historyResult/historyResult",
     "pages/ranking/ranking"
   ],

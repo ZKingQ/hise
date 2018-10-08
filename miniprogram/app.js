@@ -10,8 +10,8 @@ App({
   },
   globalData: { 
     userInfo: null,
-    singleChoiceAnswerNow:[],
-    multiChoiceAnswerNow: [],
+    singleChoiceNumber: 15,
+    multiChoiceNumber: 5,
     score:0,
     openid:null
   }
