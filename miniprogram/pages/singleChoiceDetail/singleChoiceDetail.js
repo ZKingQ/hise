@@ -9,31 +9,40 @@ Page({
     nowQuestionNumber: 0,
     userChose: '',
     score: 0,
-    loadding: true
+    loading: true
   },
 
   getQuestions: function() {
-    const db = wx.cloud.database()
-    db.collection('questions')
-      .where({
-        singleChoice: 1
-      })
-      .get()
-      .then(res => {
-        // console.log(res.data)
+    wx.cloud.callFunction({
+      name: 'getSingleQuestions',
+      data: {},
+      success: res => {
+        // console.log('[云函数] [getSingleQuestions] ', res.result.data)
+        let allquestions = res.result.data
+        let questionList = []
+        let ranNum = 15;
+        for (var i = 0; i < ranNum; i++) {
+          let ran = Math.floor(Math.random() * (allquestions.length - i));
+          questionList.push(allquestions[ran]);
+          let center = allquestions[ran];
+          allquestions[ran] = allquestions[allquestions.length - i - 1];
+          allquestions[allquestions.length - i - 1] = center;
+        }
+        // console.log(questionList, questionList.length)
         that.setData({
-          questionList: res.data,
-          loadding: false
+          questionList: questionList,
+          loading: false
         })
         that.showNextQuestion()
-      })
-      .catch(err => {
-        console.error(err)
-      })
+      },
+      fail: err => {
+        console.error('[云函数] [getSingleQuestions] 调用失败', err)
+      }
+    })
   },
 
   showNextQuestion: function() {
-    if (that.data.nowQuestionNumber > 19) {
+    if (that.data.nowQuestionNumber == 15) {
       that.overSingleChoice()
       return
     }
@@ -101,24 +110,10 @@ Page({
 
   frontQuestion: function() {},
 
-  //答题卡
-//Updated upstream
-//   answerCard: function() {
-//     getApp().globalData.singleChoiceAnswerNow = that.data.questionList,
-//       getApp().globalData.multiChoiceAnswerNow = that.data.newMultiQuestionList;
-
-//   answerCard:function(){
-//     // getApp().globalData.singleChoiceAnswerNow = that.data.questionList,
-//     // getApp().globalData.multiChoiceAnswerNow = that.data.newMultiQuestionList;
-// >>>>>>> Stashed changes
-//     wx.navigateTo({
-//       url: '../answerCard/answerCard'
-//     });
-//   },
-
   overSingleChoice: function(questionNumber) {
     wx.redirectTo({
-      url: '../result/result'
+      // url: '../result/result'
+      url: '../multiChoiceExplain/multiChoiceExplain'
     });
   }
 

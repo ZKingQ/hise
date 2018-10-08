@@ -1,31 +1,13 @@
-var that;
-
 Page({
+  data: {},
 
+  onLoad: function() {},
 
-  data: {
-    choseQuestionBank:''
-  },
+  onShow: function() {},
 
-  onLoad: function () {
-
-  },
-
-
-  onShow: function () {
-  
-  },
-
-  action: function () {
-    
+  action: function() {
     wx.redirectTo({
       url: '../singleChoiceDetail/singleChoiceDetail'
-      // url: '../singleChoiceDetail/singleChoiceDetail?choseQuestionBank=' + choseQuestionBank
     });
   }
-
-
-
-
-
 })

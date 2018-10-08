@@ -11,13 +11,14 @@
     <view class='topRight'>
       <view class='topRightContent'>
         <text style='color:#e03e16;font-size:50rpx; font-style:italic;margin-right:10rpx;'>{{nowQuestionNumber}}</text>
-        <text> / 20</text>
+        <text> / 15</text>
       </view>
     </view>
   </view>
 
   <view class='questionTitle'>
-    {{nowQuestion.question}} 下列选项中，正确的是哪一项（）
+    <text>{{nowQuestion.question}}</text>
+    <text>\r\n下列选项中，正确的是哪一项（）</text>
   </view>
 
   <!-- 选项 -->
@@ -29,15 +30,5 @@
       <view class='option'>{{item.detail}}</view>
     </view>
   </view>
-
-  <!-- <view class='frontQuestion' wx:if="{true}} "  bindtap='frontQuestion'>←</view> -->
-
   <view class='lastQuestion' wx:if="{{userChose && userChose != nowQuestion.answer}}" bindtap='showNextQuestion'>下一题</view>
-
-  <!-- <view class='bottom'>
-    <view class='middle' bindtap='answerCard'>
-      <h5>点击查看答题卡</h5>
-      <image class='leftIcon' src='../../images/1-01.png'></image>
-    </view>
-  </view> -->
 </view>

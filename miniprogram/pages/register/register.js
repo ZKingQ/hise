@@ -36,7 +36,7 @@ Page({
           studentId: studentId
         },
         success: function (res) {
-          console.log(res)
+          // console.log(res)
         }
       })
     } 
@@ -61,7 +61,6 @@ Page({
      
     } 
     else {
-      console.log("111");
       wx.switchTab({
         url: '../choiceMain/choiceMain'
       })

@@ -19,9 +19,9 @@ Page({
       _openid: app.globalData.openid
     }).get({
       success:function(res){
-        console.log(res.data[0].realName)
-        console.log(res.data[0].className)
-        console.log(res.data[0].studentId)
+        // console.log(res.data[0].realName)
+        // console.log(res.data[0].className)
+        // console.log(res.data[0].studentId)
         var realName = res.data[0].realName
         that.setData({
            realName:realName,
