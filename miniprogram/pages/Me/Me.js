@@ -31,7 +31,6 @@ Page({
         
       }
     })
-    console.log(this.realName)
   },
   onShow: function () {
   

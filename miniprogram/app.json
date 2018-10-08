@@ -1,22 +1,21 @@
 {
   "pages":[
-    
-    "pages/singleChoiceDetail/singleChoiceDetail",
-    "pages/multiChoiceDetail/multiChoiceDetail",
     "pages/choiceMain/choiceMain",
     "pages/Me/Me",
-    "pages/result/result", 
-    "pages/analysis/analysis",
+    "pages/result/result",
     "pages/register/register",
     "pages/answerCard/answerCard",
     "pages/overAnswer/overAnswer",
     "pages/testHistory/testHistory",
     "pages/personalInformation/personalInformation",
     
+    "pages/singleChoiceDetail/singleChoiceDetail",
     "pages/singleChoiceExplain/singleChoiceExplain",
+    "pages/multiChoiceDetail/multiChoiceDetail",
     "pages/multiChoiceExplain/multiChoiceExplain",
     "pages/historyResult/historyResult",
-    "pages/ranking/ranking"
+    "pages/ranking/ranking",
+    "pages/analysis/analysis"
   ],
   "window":{
     "backgroundTextStyle":"light",

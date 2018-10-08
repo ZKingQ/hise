@@ -1,13 +1,14 @@
 <view class="page">
-   <!-- <view class="loading_box" wx:if="{{loading}}">
+   <view class="loading_box" wx:if="{{loading}}">
       <view class="loading3 loading3_1"></view>
       <view class="loading3 loading3_2"></view>
       <view class="loading3 loading3_3"></view>
-    </view> -->
+    </view>
+
   <view class='grade'><text style='font-size:87rpx;color:#f2403c'>{{score*5}}</text> /100分</view>
-  <view class='rank'><text wx:if="{{score*5>=0&&score*5<=60}}">少侠仍需努力</text></view>
-  <view class='rank'><text wx:if="{{score*5>60&&score*5<90}}">加油，你可以的！</text></view>
-  <view class='rank'><text wx:if="{{score*5>=90}}">太棒了!!!</text></view>
+  <view class='rank'><text wx:if="{{score*5>=0&&score*5<=60}}">本次共答对 {{score}} 题\r\n少侠仍需努力</text></view>
+  <view class='rank'><text wx:if="{{score*5>60&&score*5<90}}">本次共答对 {{score}} 题\r\n加油，你可以的！</text></view>
+  <view class='rank'><text wx:if="{{score*5>=90}}">本次共答对 {{score}} 题\r\n太棒了!!!成绩将会被上传到排行榜</text></view>
 
    <!-- <view class='dataAnalysis'>
     <view class='dataAnalysisLeft'>
