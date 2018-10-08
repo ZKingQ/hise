@@ -1,4 +1,3 @@
-var Bmob = require('../../utils/bmob.js');
 var app = getApp();
 var that;
 Page({
