@@ -78,8 +78,11 @@ Page({
 
   chose: function(event) {
     // console.log(event)
-    var answer = that.data.nowQuestion.answer;
+    var answer = that.data.nowQuestion.answer
     var userChose = event.currentTarget.dataset.option
+    if (that.data.userChose) {
+      return
+    }
     that.setData({
       userChose: userChose
     })
