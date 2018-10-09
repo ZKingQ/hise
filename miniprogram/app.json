@@ -3,24 +3,24 @@
     "pages/choiceMain/choiceMain",
     "pages/Me/Me",
     "pages/result/result",
+    "pages/ranking/ranking",
     "pages/register/register",
     "pages/answerCard/answerCard",
     "pages/overAnswer/overAnswer",
     "pages/testHistory/testHistory",
-    "pages/personalInformation/personalInformation",
-    
+    "pages/personalInformation/personalInformation",  
     "pages/singleChoiceDetail/singleChoiceDetail",
     "pages/singleChoiceExplain/singleChoiceExplain",
     "pages/multiChoiceDetail/multiChoiceDetail",
     "pages/multiChoiceExplain/multiChoiceExplain",
     "pages/historyResult/historyResult",
-    "pages/ranking/ranking",
+    
     "pages/analysis/analysis"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#e03e16",
-    "navigationBarTitleText": "XXX答题竞赛",
+    "navigationBarTitleText": "师大知识竞赛",
     "navigationBarTextStyle":"white"
   },
  "tabBar": {

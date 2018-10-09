@@ -26,25 +26,4 @@
   </view>
 
   <view class='grayLine1'></view>
-
-  <!-- <view class='testHistory' bindtap='testHistory'>
-    <image class='icon' src='../../images/1-01.png'></image>
-    <view class='text'>测试历史</view>
-  </view> -->
-
-  <!-- <view class='personalInformation'>
-    <view class='text'>大学计算机基础</view>
-    <view class='text'>90分</view>
-  </view> -->
-  <!-- <view class='item' wx:for="{{historyQuestionBank}}" bindtap='showDetail' data-index="{{index}}"> -->
-  <!-- <view class='itemName'>{{item.choseQuestionBank}}</view> -->
-  <!-- <view class='peopleNumber'>99+人做过</view> -->
-  <!-- </view> -->
-
-  <!-- <view class='personalInformation' bindtap='personalInformation'>
-    <image class='icon'  src='../../images/1-02.png'></image>
-    <view class='text'>个人信息</view>
-  </view> -->
-
-
 </view>

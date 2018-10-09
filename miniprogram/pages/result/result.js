@@ -12,7 +12,7 @@ Page({
     that.setData({
       score: score
     })
-    if (score >= 18) {
+    if (score >= 16) {
       wx.cloud.callFunction({
         name: 'uploadScore',
         data: {
