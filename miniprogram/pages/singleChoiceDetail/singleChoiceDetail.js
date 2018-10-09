@@ -14,6 +14,7 @@ Page({
   onLoad: function() {
     that = this;
     let singleChoiceNumber = getApp().globalData.singleChoiceNumber
+    getApp().globalData.score = 0
     that.setData({
       singleChoiceNumber: singleChoiceNumber
     })

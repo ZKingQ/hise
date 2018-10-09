@@ -23,7 +23,7 @@ Page({
         console.log(res.data[0]._openid)
         console.log(res.data.length)
         if(!res.data.length) {
-          wx.navigateTo({
+          wx.redirectTo({
             url: '../register/register',
           })
         }
