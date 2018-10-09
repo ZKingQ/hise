@@ -81,6 +81,9 @@ Page({
 
   chose: function(event) {
     // console.log(event)
+    if (that.data.answered) {
+      return;
+    }
     let tmp = event.currentTarget.dataset.option
     let userChose = that.data.userChose
     // console.log(userChose)
@@ -92,9 +95,11 @@ Page({
 
   unChose: function(event) {
     // console.log(event)
+    if (that.data.answered) {
+      return;
+    }
     let tmp = event.currentTarget.dataset.option
     let userChose = that.data.userChose
-    console.log(userChose)
     userChose[tmp] = ''
     that.setData({
       userChose: userChose
