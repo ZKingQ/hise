@@ -4,8 +4,16 @@ Page({
     ranking_list: []
   },
 
+  onPullDownRefresh: function(options) {
+    that.getRank()
+  },
+
   onLoad: function(options) {
     that = this;
+    that.getRank()
+  },
+
+  getRank: function() {
     const db = wx.cloud.database()
     db.collection('users')
       .orderBy('score', 'desc')
@@ -21,6 +29,7 @@ Page({
           that.setData({
             ranking_list: tmp
           })
+          wx.stopPullDownRefresh()
         },
         fail: function(err) {
           console.log(err)

@@ -136,7 +136,7 @@ Page({
       flag = false
     if (flag) {
       getApp().globalData.score++;
-      console.log(getApp().globalData.score)
+      //console.log(getApp().globalData.score)
       setTimeout(that.showNextQuestion, 300)
       that.setData({
         hint: "回答正确",
