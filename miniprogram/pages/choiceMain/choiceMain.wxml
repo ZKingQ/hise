@@ -5,8 +5,7 @@
       <open-data class="userinfo-nickname" type="userNickName" lang="zh_CN"></open-data>
     </view>
   </view>
-
-
+  
   <view class='startAnswer' bindtap='start'>
     开始答题
   </view>

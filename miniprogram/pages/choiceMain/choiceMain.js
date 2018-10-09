@@ -2,7 +2,7 @@ var that;
 const app = getApp()
 Page({
   data: {
-    startSrc: '../register/register',
+    // startSrc: '../register/register',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
@@ -20,6 +20,8 @@ Page({
       _openid: app.globalData.openid
     }).get({
       success: function(res) {
+        console.log(res.data[0]._openid)
+        console.log(res.data.length)
         if(!res.data.length) {
           wx.navigateTo({
             url: '../register/register',
