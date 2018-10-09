@@ -13,6 +13,10 @@ App({
     singleChoiceNumber: 15,
     multiChoiceNumber: 5,
     score:0,
-    openid:null
+    openid:null,
+    realName: '',
+    className: '',
+    studentId: '',
+    totalScore: 0
   }
 })

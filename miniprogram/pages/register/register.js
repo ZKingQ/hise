@@ -5,15 +5,6 @@ Page({
   data: {
     currentUserId: null
   },
-
-  onLoad: function() {
-
-  },
-
-
-  onShow: function() {
-
-  },
   
   registerSuccess: function(e) {
     var currentUserId = this.data.currentUserId;
@@ -30,7 +21,6 @@ Page({
 
       db.collection('users').add({
         data: {
-          // userId: currentUserId,
           realName: realName,
           className: className,
           studentId: studentId

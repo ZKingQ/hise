@@ -17,7 +17,6 @@
   </view>
   <view class='questionTitle'>
     <text>{{nowQuestion.question}}</text>
-    <text>\r\n下列选项中，正确的是哪一项（）</text>
   </view>
   <view class='questionOption'>
     <view class='item' wx:for="{{nowQuestion.options}}" wx:key="userInfoListId">
