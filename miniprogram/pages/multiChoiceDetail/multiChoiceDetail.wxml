@@ -29,9 +29,9 @@
   <view>
     <text>\r\n</text>
   </view>
-  <view class='submit' bindtap='answer' style='background-color:{{answered ? "#e03e16" : ""}}'>
+  <view class='submit' bindtap='answer' style='background-color:{{answered == 1 ? "#e03e16" : ""}}'>
     <image class='handIcon' src='../../images/hand.png'></image>
-    <text>{{answered ? "下一题" : "提交答案"}}</text>
+    <text>{{answered == 1 ? "下一题" : "提交答案"}}</text>
   </view>
 
   <view class='option'><text>\r\n</text>{{hint}}</view>

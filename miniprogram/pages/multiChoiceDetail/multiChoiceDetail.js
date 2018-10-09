@@ -7,7 +7,7 @@ Page({
     multiChoiceNumber: 0,
     userChose: {},
     loading: true,
-    answered: false,
+    answered: 0, // 未答，答错， 答对
     hint: ''
   },
 
@@ -103,7 +103,8 @@ Page({
 
   answer: function() {
     if (that.data.answered) {
-      that.showNextQuestion()
+      if(that.data.answered == 1)
+        that.showNextQuestion()
       return;
     }
     let answer = that.data.nowQuestion.answer,
@@ -117,18 +118,28 @@ Page({
     for (let i in userChose)
       if (userChose[i])
         ++tot
+    if(tot < 2) {
+      that.setData({
+        hint: "请至少选择两个选项",
+      })
+      return;
+    }
+    that.setData({
+      answered: 1
+    })
     if (tot != answer.length)
       flag = false
     if (flag) {
       getApp().globalData.score++;
+      console.log(getApp().globalData.score)
       setTimeout(that.showNextQuestion, 300)
       that.setData({
-        hint: "回答正确"
+        hint: "回答正确",
+        answered: 2
       })
     } else {
       that.setData({
         hint: "正确答案：" + that.data.nowQuestion.answer + "\r\n" + that.data.nowQuestion.analyze,
-        answered: true
       })
     }
   },
