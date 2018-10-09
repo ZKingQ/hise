@@ -20,7 +20,7 @@
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#e03e16",
-    "navigationBarTitleText": "师大知识竞赛",
+    "navigationBarTitleText": "杭师大知识竞赛",
     "navigationBarTextStyle":"white"
   },
  "tabBar": {
