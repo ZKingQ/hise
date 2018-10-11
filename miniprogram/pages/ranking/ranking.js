@@ -17,7 +17,7 @@ Page({
     const db = wx.cloud.database()
     db.collection('users')
       .orderBy('score', 'desc')
-      .limit(10)
+      .limit(20)
       .get({
         success: function(res) {
           // console.log(res)
