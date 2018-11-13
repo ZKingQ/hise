@@ -11,12 +11,12 @@ exports.main = async(event, context) => {
   }).count()
   totalQuestions = totalQuestions.total
   let ranNum = event.num;
-  let start = Math.floor(Math.random() * Math.max(0, totalQuestions - ranNum)) + 1
+  let start = Math.floor(Math.random() * Math.max(0, totalQuestions - 100)) + 1
   let res = await db.collection('questions')
     .where({
       singleChoice: singleChoice
     })
-    .skip(10)
+    .skip(start)
     .get()
   let arr = res.data
   let questionList = []
