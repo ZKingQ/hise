@@ -12,37 +12,22 @@ Page({
     that.setData({
       score: score
     })
-    const db = wx.cloud.database()
-    db.collection('records').add({
+
+    wx.cloud.callFunction({
+      name: 'uploadScore',
       data: {
-        realName: app.globalData.realName,
-        className: app.globalData.className,
-        studentId: app.globalData.studentId,
-        score: app.globalData.score * 5,
-        time: new Date()
+        openid: app.globalData.openid,
+        score: score * 2
       },
-      success: function (res) {
-        // console.log(res)
+    }).then(res => {
+      // console.log(res)
+      if (res.result.status === "success") {
+        app.globalData.totalScore += res.result.data.score
       }
-    })
-    if (score >= 16) {
-      wx.cloud.callFunction({
-        name: 'uploadScore',
-        data: {
-          openid: app.globalData.openid
-        },
-        complete: val => {
-          ++app.globalData.totalScore
-          that.setData({
-            loading: false
-          })
-        }
-      })
-    } else {
       that.setData({
         loading: false
       })
-    }
+    })
   },
   returnMainPage: function() {
     wx.switchTab({

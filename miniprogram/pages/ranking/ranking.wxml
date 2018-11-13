@@ -5,11 +5,6 @@
     <view class="loading3 loading3_3"></view>
   </view>
 
-
-  <view class='title'>
-    <text>有效分数达80以上，即可获得排行榜积分</text>
-  </view>
-
   <view class='grayLine'></view>
 
   <view class='ranking' wx:for="{{ranking_list}}" wx:key="test">
@@ -115,5 +110,9 @@
         </view>
       </view>
     </view>
+  </view>
+
+  <view class='title'>
+    <text>\n有效分数达90以上，即可获得排行榜积分</text>
   </view>
 </view>

@@ -95,8 +95,8 @@ Page({
 
   overSingleChoice: function(questionNumber) {
     wx.redirectTo({
-      // url: '../result/result'
-      url: '../multiChoiceExplain/multiChoiceExplain'
+      url: '../result/result'
+      // url: '../multiChoiceExplain/multiChoiceExplain'
     });
   }
 })
