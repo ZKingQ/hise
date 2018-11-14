@@ -5,10 +5,10 @@
       <view class="loading3 loading3_3"></view>
     </view>
 
-  <view class='grade'><text style='font-size:87rpx;color:#f2403c'>{{score*5}}</text> /100分</view>
-  <view class='rank'><text wx:if="{{score*5>=0&&score*5<=60}}">本次共答对 {{score}} 题\r\n少侠仍需努力</text></view>
-  <view class='rank'><text wx:if="{{score*5>60&&score*5<80}}">本次共答对 {{score}} 题\r\n加油，你可以的！</text></view>
-  <view class='rank'><text wx:if="{{score*5>=80}}">本次共答对 {{score}} 题\r\n太棒了!!!恭喜获得一个排行榜积分</text></view>
+  <view class='grade'><text style='font-size:87rpx;color:#f2403c'>{{score*2}}</text> /100分</view>
+  <view class='rank'><text wx:if="{{score*2>=0&&score*2<=60}}">本次共答对 {{score}} 题\r\n少侠仍需努力</text></view>
+  <view class='rank'><text wx:if="{{score*2>60&&score*2<80}}">本次共答对 {{score}} 题\r\n加油，你可以的！</text></view>
+  <view class='rank'><text wx:if="{{score*2>=80}}">本次共答对 {{score}} 题\r\n太棒了!!!恭喜获得一个排行榜积分</text></view>
 <button class='back' bindtap='returnMainPage'>返回首页</button>
 
 </view>
