@@ -113,6 +113,6 @@
   </view>
 
   <view class='title'>
-    <text>\n有效分数达90以上，即可获得排行榜积分</text>
+    <text>\n按照分数高低排名，分数相同按所用时间排序</text>
   </view>
 </view>

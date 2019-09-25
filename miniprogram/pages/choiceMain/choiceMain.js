@@ -4,16 +4,22 @@ Page({
   data: {
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    isDoneCount: 2,
   },
 
   start: function() {
     wx.navigateTo({
-      url: '../singleChoiceExplain/singleChoiceExplain',
+      url: '../trueOrFalseExplain/trueOrFalseExplain',
+
+      // url: '../singleChoiceExplain/singleChoiceExplain',
+      // url: '../result/result',
+      // url: '../multiChoiceExplain/multiChoiceExplain',
     })
   },
 
   onLoad: function() {
+    that = this;
     wx.cloud.callFunction({
       name: 'login',
       data: {},
@@ -36,6 +42,12 @@ Page({
               app.globalData.className = res.data[0].className
               app.globalData.studentId = res.data[0].studentId
               app.globalData.totalScore = (res.data[0].score ? res.data[0].score : 0)
+              app.globalData.isDoneCount = (res.data[0].isDoneCount ? res.data[0].isDoneCount : 0)
+              app.globalData.highestScore = (res.data[0].score ? res.data[0].score : 0)
+              that.setData({
+                isDoneCount: app.globalData.isDoneCount
+              })
+              app.globalData.useTime = 0
             }
           },
           fail: function(err) {
@@ -46,6 +58,12 @@ Page({
       fail: err => {
         console.error('[云函数] [login] 调用失败', err)
       }
+    })
+  },
+
+  onShow() {
+    that.setData({
+      isDoneCount: app.globalData.isDoneCount
     })
   }
 })

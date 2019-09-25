@@ -14,7 +14,7 @@ Page({
   onLoad: function() {
     that = this;
     let singleChoiceNumber = getApp().globalData.singleChoiceNumber
-    getApp().globalData.score = 0
+    // getApp().globalData.score = 0
     that.setData({
       singleChoiceNumber: singleChoiceNumber
     })
@@ -88,7 +88,8 @@ Page({
       userChose: userChose
     })
     if (userChose == answer) {
-      getApp().globalData.score++;
+      getApp().globalData.score+=2;
+      getApp().globalData.rightCnt++;
       setTimeout(that.showNextQuestion, 300)
     }
   },

@@ -6,7 +6,7 @@ const db = cloud.database()
 const _ = db.command
 // 云函数入口函数
 exports.main = async (event, context) => {
-  if (!event.openid || !event.score)
+  if (!event.openid || event.score === null)
     return {
       status: "error",
       errMsg: "empty openid"
@@ -21,27 +21,28 @@ exports.main = async (event, context) => {
       time: t
     }
   })
-  if (event.score < 90) {
-    return {
-      status: "error",
-      errMsg: "document.update: skip"
-    }
+
+  if (event.useTime >= 2400) {
+    event.score = event.score*(-1) - 10000
   }
+
   let res = await db.collection('users').where({
     _openid: event.openid
   }).get()
   let id = res.data[0]._id
-  let score = (res.data[0].score ? res.data[0].score : 0) + 1
+
   await db.collection('users').doc(id).update({
     data: {
-      score: score
+      score: event.score,
+      isDoneCount: event.isDoneCount,
+      useTime: event.useTime
     }
   })
   return {
     status: "success",
     errMsg: "document.update:ok",
     data: {
-      score: 1
+      score: event.score
     }
   }
 }

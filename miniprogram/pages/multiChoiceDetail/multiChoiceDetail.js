@@ -135,8 +135,8 @@ Page({
     if (tot != answer.length)
       flag = false
     if (flag) {
-      getApp().globalData.score++;
-      //console.log(getApp().globalData.score)
+      getApp().globalData.score+=2;
+      getApp().globalData.rightCnt++;
       setTimeout(that.showNextQuestion, 300)
       that.setData({
         hint: "回答正确",
@@ -151,7 +151,8 @@ Page({
 
   submit: function() {
     wx.redirectTo({
-      url: '../result/result'
+      // url: '../result/result'
+      url: '../singleChoiceExplain/singleChoiceExplain'
     });
   }
 })

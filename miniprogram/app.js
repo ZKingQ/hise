@@ -10,13 +10,18 @@ App({
   },
   globalData: { 
     userInfo: null,
-    singleChoiceNumber: 50,
-    // multiChoiceNumber: 5,
-    score:0,
+    singleChoiceNumber: 30,
+    multiChoiceNumber: 10,
+    trueOrFalseNumber: 20,
+    score:0, // 答对分数
+    rightCnt:0, // 答对题数
     openid:null,
     realName: '',
     className: '',
     studentId: '',
-    totalScore: 0
+    totalScore: 0,
+    isDoneCount: 0,
+    startTime: null,
+    useTime: 0,
   }
 })

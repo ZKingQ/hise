@@ -5,7 +5,7 @@ cloud.init()
 const db = cloud.database()
 // 云函数入口函数
 exports.main = async(event, context) => {
-  let singleChoice = (event.singleChoice == 0 ? 0 : 1)
+  let singleChoice = event.singleChoice
   let totalQuestions = await db.collection('questions').where({
     singleChoice: singleChoice
   }).count()

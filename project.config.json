@@ -10,8 +10,10 @@
 	},
 	"appid": "wx36361a607b120006",
 	"projectname": "hise",
-	"libVersion": "2.2.5",
+	"libVersion": "2.8.2",
 	"compileType": "miniprogram",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,

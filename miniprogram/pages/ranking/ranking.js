@@ -14,26 +14,24 @@ Page({
   },
 
   getRank: function() {
-    const db = wx.cloud.database()
-    db.collection('users')
-      .orderBy('score', 'desc')
-      .limit(20)
-      .get({
-        success: function(res) {
-          // console.log(res)
-          let tmp = res.data
-          let rank = 1
-          for (let i in tmp) {
-            tmp[i].rank = rank++
-          }
-          that.setData({
-            ranking_list: tmp
-          })
-          wx.stopPullDownRefresh()
-        },
-        fail: function(err) {
-          console.log(err)
+    wx.cloud.callFunction({
+      name: 'getRanking',
+      data: {},
+      success: res => {
+        // console.log('[云函数] [login] user openid: ', res.result.openid)
+        let tmp = res.result.data
+        let rank = 1
+        for (let i in tmp) {
+          tmp[i].rank = rank++
         }
-      })
+        that.setData({
+          ranking_list: tmp
+        })
+        wx.stopPullDownRefresh()
+      },
+      fail: err => {
+        console.error('[云函数] [login] 调用失败', err)
+      }
+    })
   }
 })

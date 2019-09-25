@@ -11,7 +11,8 @@ Page({
     var realName = e.detail.value.realName;
     var className = e.detail.value.className;
     var studentId = e.detail.value.studentId;
-
+    var isDoneCount = 0;
+    
     if(realName&&className&&studentId){
       const db = wx.cloud.database()
 
@@ -23,7 +24,8 @@ Page({
         data: {
           realName: realName,
           className: className,
-          studentId: studentId
+          studentId: studentId,
+          isDoneCount: isDoneCount
         },
         success: function (res) {
           // console.log(res)
