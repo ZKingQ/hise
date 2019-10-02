@@ -22,8 +22,7 @@ Page({
   onLoad: function (options) {
     that = this;
     let trueOrFalseNumber = getApp().globalData.trueOrFalseNumber
-    getApp().globalData.score = 0
-    getApp().globalData.rightCnt = 0
+   
     that.setData({
       trueOrFalseNumber: trueOrFalseNumber
     })
@@ -32,24 +31,9 @@ Page({
   },
 
   start: function() {
-    app.globalData.startTime = new Date();
-    // getApp().globalData.isDoneCount++
-    // wx.cloud.callFunction({
-    //   name: 'uploadScore',
-    //   data: {
-    //     openid: app.globalData.openid,
-    //     score: -1,
-    //     isDoneCount: getApp().globalData.isDoneCount,
-    //   },
-    // }).then(res => {
-    //   // console.log(res)
-    //   if (res.result.status === "success") {
-    //     app.globalData.totalScore = res.result.data.score
-    //   }
-    //   that.setData({
-    //     loading: false
-    //   })
-    // })
+    getApp().globalData.startTime = new Date();
+    getApp().globalData.score = 0
+    getApp().globalData.rightCnt = 0
   },
 
   getQuestions: function () {

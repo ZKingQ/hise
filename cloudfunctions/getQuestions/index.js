@@ -20,12 +20,13 @@ exports.main = async(event, context) => {
     .get()
   let arr = res.data
   let questionList = []
-  for (var i = 0; i < ranNum; i++) {
+  for (let i = 0; i < ranNum; i++) {
     let ran = Math.floor(Math.random() * (arr.length - i));
     questionList.push(arr[ran]);
     let tmp = arr[ran];
     arr[ran] = arr[arr.length - i - 1];
     arr[arr.length - i - 1] = tmp;
   }
+  
   return questionList
 }

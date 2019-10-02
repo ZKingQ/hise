@@ -8,8 +8,7 @@ const db = cloud.database()
 exports.main = async (event, context) => {
   let res = await db.collection('users')
     .orderBy('score', 'desc')
-    .orderBy('useTime', 'asc')
-    .limit(50)
+    .limit(10)
     .get()
   return res
 }

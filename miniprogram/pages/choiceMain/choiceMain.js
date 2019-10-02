@@ -10,11 +10,11 @@ Page({
 
   start: function() {
     wx.navigateTo({
-      url: '../trueOrFalseExplain/trueOrFalseExplain',
+      url: '../singleChoiceExplain/singleChoiceExplain',
 
-      // url: '../singleChoiceExplain/singleChoiceExplain',
       // url: '../result/result',
       // url: '../multiChoiceExplain/multiChoiceExplain',
+      // url: '../trueOrFalseExplain/trueOrFalseExplain',
     })
   },
 

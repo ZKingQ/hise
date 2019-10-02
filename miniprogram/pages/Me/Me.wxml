@@ -28,7 +28,7 @@
   <view class='grayLine1'></view>
 
   <view class='personalInformation'>
-    <view class='text'>有效得分: </view>
+    <view class='text'>有效积分: </view>
     <view class='text' style='color:#343535;'>{{score}}</view>
   </view>
 

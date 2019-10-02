@@ -14,24 +14,52 @@ Page({
   onLoad: function() {
     that = this;
     let singleChoiceNumber = getApp().globalData.singleChoiceNumber
-    // getApp().globalData.score = 0
+    // 若不从单选题开始，则注释下列语句
+    that.start();
+
     that.setData({
       singleChoiceNumber: singleChoiceNumber
     })
     that.getQuestions()
   },
 
+  start: function () {
+    getApp().globalData.startTime = new Date();
+    getApp().globalData.score = 0
+    getApp().globalData.rightCnt = 0
+  },
+
   onShow: function() {},
 
   getQuestions: function() {
+    // wx.cloud.callFunction({
+    //   name: 'getQuestions',
+    //   data: {
+    //     num: that.data.singleChoiceNumber,
+    //     singleChoice: 1
+    //   },
+    //   success: res => {
+    //     // console.log('[云函数] [getQuestions] ', res.result)
+    //     let questionList = res.result
+    //     // console.log(questionList, questionList.length)
+    //     that.setData({
+    //       questionList: questionList,
+    //       loading: false
+    //     })
+    //     that.showNextQuestion()
+    //   },
+    //   fail: err => {
+    //     console.error('[云函数] [getQuestions] 调用失败', err)
+    //   }
+    // })
+
     wx.cloud.callFunction({
-      name: 'getQuestions',
+      name: 'getSingleChoiceQuestionsByPart',
       data: {
-        num: that.data.singleChoiceNumber,
-        singleChoice: 1
+        random: true,
       },
       success: res => {
-        // console.log('[云函数] [getQuestions] ', res.result)
+        // console.log('[云函数] [getSingleChoiceQuestionsByPart] ', res.result)
         let questionList = res.result
         // console.log(questionList, questionList.length)
         that.setData({
@@ -88,7 +116,7 @@ Page({
       userChose: userChose
     })
     if (userChose == answer) {
-      getApp().globalData.score+=2;
+      getApp().globalData.score += 2;
       getApp().globalData.rightCnt++;
       setTimeout(that.showNextQuestion, 300)
     }

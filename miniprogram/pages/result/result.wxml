@@ -10,7 +10,7 @@
   <view class='rank'>
     <text wx:if="{{score>=0&&score<=60}}">本次共答对 {{rightCnt}} 题\r\n少侠仍需努力</text>
     <text wx:if="{{score>60&&score<80}}">本次共答对 {{rightCnt}} 题\r\n加油，你可以的！</text>
-    <text wx:if="{{score>=80}}">本次共答对 {{rightCnt}} 题\r\n太棒了!!!</text>
+    <text wx:if="{{score>=80}}">本次共答对 {{rightCnt}} 题\r\n太棒了，获得一个有效积分!!!</text>
     <text>\n所用时间{{useTime}}</text>
   </view>
   <button class='back' bindtap='returnMainPage'>返回首页</button>

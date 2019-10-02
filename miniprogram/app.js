@@ -42,9 +42,9 @@ App({
 
   globalData: { 
     userInfo: null,
-    singleChoiceNumber: 30,
-    multiChoiceNumber: 10,
-    trueOrFalseNumber: 20,
+    singleChoiceNumber: 50,
+    multiChoiceNumber: 0,
+    trueOrFalseNumber: 0,
     score:0, // 答对分数
     rightCnt:0, // 答对题数
     openid:null,
@@ -52,7 +52,7 @@ App({
     className: '',
     studentId: '',
     totalScore: 0,
-    isDoneCount: 0,
+    isDoneCount: 0, // 已做次数
     startTime: null,
     useTime: 0,
   }

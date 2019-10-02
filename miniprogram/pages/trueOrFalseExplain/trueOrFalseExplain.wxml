@@ -6,7 +6,7 @@
       <text>判断题</text>
     </view>
     <view class='content'>
-      <text>本大题共20小题，每小题1分，共20分。\n\n 您最多可答一次，限时40分钟，每次选择后会出现正确和错误选项，绿色表示正确选项，红色表示错误选项，排行榜按照用户作答中的最高成绩进行排名（成绩相同按照作答时间长短排名）</text>
+      <text>本大题共20小题，每小题1分，共20分。</text>
     </view>
   </view>
   <view class='startAnswer' bindtap='action'>

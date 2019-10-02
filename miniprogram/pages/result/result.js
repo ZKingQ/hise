@@ -17,9 +17,9 @@ Page({
     let minute = Math.floor(useTime/60);
     let second = useTime % 60;
     let useTime_str = minute + "分" + second + "秒";
-    if(minute >= 40) {
-      useTime_str += "，您已超出规定作答时间，本次答题成绩无效。"
-    }
+    // if(minute >= 40) {
+    //   useTime_str += "，您已超出规定作答时间，本次答题成绩无效。"
+    // }
 
     that.setData({
       score: score,
@@ -38,7 +38,7 @@ Page({
     }).then(res => {
       // console.log(res)
       if (res.result.status === "success") {
-        app.globalData.totalScore = res.result.data.score
+        app.globalData.totalScore += res.result.data.score;
       }
       that.setData({
         loading: false
